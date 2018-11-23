@@ -2,7 +2,7 @@
 Library     Selenium2Library
 Library     Collections
 Library     String
-Resource    ../Locators/Elements.robot
+Resource    ../Locators/login_elements.robot
 
 *** Variables ***
 
