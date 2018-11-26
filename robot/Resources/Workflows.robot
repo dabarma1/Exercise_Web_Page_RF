@@ -2,38 +2,21 @@
 Library     Selenium2Library
 Library     Collections
 Library     String
-Resource    Resources/PageObject/LoginUPO.robot
-Resource    Resources/PageObject/JobTitleUPO.robot
-Resource    Resources/PageObject/JobAddUPO.robot
+Resource    PageObject/LoginUPO.robot
 *** Variables ***
 
 *** Keywords ***
 Open Browser and go to orangehrm
     [Documentation]
-    open browser    https://opensource-demo.orangehrmlive.com/  Firefox
+    open browser    https://opensource-demo.orangehrmlive.com/  Chrome
     sleep   3
-
-Set up Add Job
+Loggin as Admin
     [Documentation]
-    open browser    https://opensource-demo.orangehrmlive.com/  Firefox
-    sleep   3
-    LoginWF
-
-LoginWF
-    [Documentation]    Do Login
     Input user name in loggin page  Admin
     Input user password in loggin page  admin123
     Do login
 
-Add Job WF
-    [Documentation]    Add Job
-    Click On Admin Section
-    Click On Job Section
-    Click On Job Title Section
-    Click On Add Button
-    Fill Title Job  QA Analyst
-    Fill Description Job  Analize test Methodologies
-    Click On Save Button
-
-
-
+Go to Add Usser
+    [Documentation]
+    Loggin as Admin
+    Go to   https://opensource-demo.orangehrmlive.com/index.php/admin/saveSystemUser
