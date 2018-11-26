@@ -3,6 +3,9 @@ Library     Selenium2Library
 Library     Collections
 Library     String
 Resource    PageObject/LoginUPO.robot
+Resource    PageObject/JobManagementUPO.robot
+Resource    PageObject/addNewJobUPO.robot
+
 *** Variables ***
 
 *** Keywords ***
@@ -20,3 +23,22 @@ Go to Add Usser
     [Documentation]
     Loggin as Admin
     Go to   https://opensource-demo.orangehrmlive.com/index.php/admin/saveSystemUser
+
+Set up Add Job
+    [Documentation]
+    Open Browser and go to orangehrm
+    Loggin as Admin
+    Click On Admin Section
+
+Add New Job
+    [Documentation]     Add New Job
+    [Arguments]     ${job_title}    ${job_description}
+    Click On Admin Section
+    Click On Job Section
+    sleep   1
+    Click On Job Management Section
+    Job Management Click On Add Button
+    sleep  1
+    Fill Title Job    ${job_title}
+    Fill Description Job    ${job_description}
+    Click On Save Button

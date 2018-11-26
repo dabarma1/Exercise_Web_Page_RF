@@ -9,7 +9,7 @@ Library           String
 # Elements in Job Add Page #
 Assign Title Job
     [Arguments]  ${title_job}
-    assign id to element  //*[@id="jobTitle_jobTitle"]    ${title_job}
+    assign id to element    //*[@id="jobTitle_jobTitle"]    ${title_job}
 
 Assign Description Job
     [Arguments]  ${description_job}
@@ -26,12 +26,4 @@ Assign Save Button Job
 Assign Cancel Button Job
     [Arguments]  ${cancel_btn}
     assign id to element   //*[@id="btnCancel"]    ${cancel_btn}
-
-Assign Title Job Get Text
-    [Arguments]  ${title_job_get_text}
-    assign id to element    //*[@id="resultTable"]/tbody/tr/td[2]/a     ${title_job_get_text}
-
-Assign Description Job Get Text
-    [Arguments]  ${description_job_get_text}
-    assign id to element  //*[@id="resultTable"]/tbody/tr/td[3]   ${description_job_get_text}
 
