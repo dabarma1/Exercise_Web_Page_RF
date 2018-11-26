@@ -13,7 +13,7 @@ ${URL_LOGIN}      https://opensource-demo.orangehrmlive.com/index.php/dashboard
 *** Test Cases ***
 Add Job to table
     [Tags]    JobSection
-    [Setup]    Open Browser and go to orangehrm
+    [Setup]    Set up Add Job
     [Template]    Add Job To Table
     QA Analyst    QA Methodologies
     Front-End Developer    Develop tasks
@@ -32,11 +32,12 @@ Delete All Jobs to table
 Add Job To Table
     [Arguments]    ${job_title}    ${job_description}
     [Documentation]    Keyword to add job
-    LoginWF
     Click On Admin Section
     Click On Job Section
+    sleep   1
     Click On Job Title Section
     Job Title Page Click On Add Button
     Fill Title Job    ${job_title}
     Fill Description Job    ${job_description}
     Click On Save Button
+    Check Title Job     QA Analyst

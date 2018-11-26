@@ -13,6 +13,12 @@ Open Browser and go to orangehrm
     open browser    https://opensource-demo.orangehrmlive.com/  Firefox
     sleep   3
 
+Set up Add Job
+    [Documentation]
+    open browser    https://opensource-demo.orangehrmlive.com/  Firefox
+    sleep   3
+    LoginWF
+
 LoginWF
     [Documentation]    Do Login
     Input user name in loggin page  Admin

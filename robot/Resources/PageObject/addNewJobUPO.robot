@@ -41,16 +41,22 @@ Fill Note Job
     clear element text  JOB_NOTE
     input text   JOB_NOTE   ${note_job}
 
-Get Title Job
+Check Title Job
     [Documentation]    This keyword Return Title Job
-    Assign Title Job  JOB_TITLE_FILL
-    Wait Until Element Is Visible  JOB_TITLE_FILL
-    ${title_job}    get text    JOB_TITLE_FILL
-    [Return]    ${title_job}
+    [Arguments]     ${title_job_expected}
+    Assign Title Job Get Text   JOB_TITLE_GET
+    ${count}=    Get Matching Xpath Count    JOB_TITLE_GET
+    ${names}=    Create List
+    :FOR    ${i}    IN RANGE    1    ${count} + 1
+    \    ${title_job} =    Get Text    xpath=(JOB_TITLE_GET)[${i}]
+    \    log to console  ${title_job}
+    \    ${exit_for_loop} =  should be equal     ${title_job}   ${title_job_expected}
+    \    continue for loop if   ${exit_for_loop}
+
 
 Get Description Job
     [Documentation]    This keyword Return Description Job
-    Assign Title Job  JOB_DESCRIPTION
-    Wait Until Element Is Visible  JOB_DESCRIPTION
-    ${title_description}    get text    JOB_DESCRIPTION
+    Assign Description Job Get Text  JOB_DESCRIPTION_GET
+    Wait Until Element Is Visible  JOB_DESCRIPTION_GET
+    ${title_description}    get text    JOB_DESCRIPTION_GET
     [Return]    ${title_description}
