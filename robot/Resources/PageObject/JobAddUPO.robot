@@ -11,7 +11,6 @@ Click On Save Button
     [Documentation]    This keyword Click on "Save" Button
     Assign Save Button Job  SAVE_BUTTON
     click button  SAVE_BUTTON
-    Sleep   5
 
 Click On Cancel Button
     [Documentation]    This keyword Click on "Cancel" Button
@@ -41,3 +40,17 @@ Fill Note Job
     Wait Until Element Is Visible  JOB_NOTE
     clear element text  JOB_NOTE
     input text   JOB_NOTE   ${note_job}
+
+Get Title Job
+    [Documentation]    This keyword Return Title Job
+    Assign Title Job  JOB_TITLE_FILL
+    Wait Until Element Is Visible  JOB_TITLE_FILL
+    ${title_job}    get text    JOB_TITLE_FILL
+    [Return]    ${title_job}
+
+Get Description Job
+    [Documentation]    This keyword Return Description Job
+    Assign Title Job  JOB_DESCRIPTION
+    Wait Until Element Is Visible  JOB_DESCRIPTION
+    ${title_description}    get text    JOB_DESCRIPTION
+    [Return]    ${title_description}
