@@ -1,201 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generated="20181123 12:36:35.501" generator="Robot 3.0.3 (Python 2.7.14 on darwin)">
-<suite source="/Users/david/Desktop/Exercise_Web_Page/robot/Tests/Functional/login_test.robot" id="s1" name="Login Test">
-<test id="s1-t1" name="Empty User Name">
-<kw type="setup" name="Open Browser and go to orangehrm" library="Workflows">
-<msg timestamp="20181123 12:36:35.709" level="TRACE">Arguments: [  ]</msg>
-<kw name="Open Browser" library="Selenium2Library">
-<doc>Opens a new browser instance to given URL.</doc>
-<arguments>
-<arg>https://opensource-demo.orangehrmlive.com/</arg>
-<arg>Chrome</arg>
-</arguments>
-<msg timestamp="20181123 12:36:35.709" level="TRACE">Arguments: [ 'https://opensource-demo.orangehrmlive.com/' | 'Chrome' ]</msg>
-<msg timestamp="20181123 12:36:35.709" level="INFO">Opening browser 'Chrome' to base url 'https://opensource-demo.orangehrmlive.com/'</msg>
-<msg timestamp="20181123 12:36:36.744" level="DEBUG">POST http://127.0.0.1:53508/session {"capabilities": {"alwaysMatch": {"goog:chromeOptions": {"args": [], "extensions": []}, "browserName": "chrome", "platformName": "any"}, "firstMatch": [{}]}, "desiredCapabilities": {"goog:chromeOptions": {"args": [], "extensions": []}, "platform": "ANY", "browserName": "chrome", "version": ""}}</msg>
-<msg timestamp="20181123 12:36:37.900" level="DEBUG">Finished Request</msg>
-<msg timestamp="20181123 12:36:37.900" level="DEBUG">POST http://127.0.0.1:53508/session/5e2e66fc3a92b4024e76dbddc975f80e/timeouts/async_script {"sessionId": "5e2e66fc3a92b4024e76dbddc975f80e", "ms": 5000.0}</msg>
-<msg timestamp="20181123 12:36:37.901" level="DEBUG">Finished Request</msg>
-<msg timestamp="20181123 12:36:37.902" level="DEBUG">POST http://127.0.0.1:53508/session/5e2e66fc3a92b4024e76dbddc975f80e/timeouts/implicit_wait {"sessionId": "5e2e66fc3a92b4024e76dbddc975f80e", "ms": 0.0}</msg>
-<msg timestamp="20181123 12:36:37.902" level="DEBUG">Finished Request</msg>
-<msg timestamp="20181123 12:36:37.903" level="DEBUG">POST http://127.0.0.1:53508/session/5e2e66fc3a92b4024e76dbddc975f80e/url {"url": "https://opensource-demo.orangehrmlive.com/", "sessionId": "5e2e66fc3a92b4024e76dbddc975f80e"}</msg>
-<msg timestamp="20181123 12:36:40.134" level="DEBUG">Finished Request</msg>
-<msg timestamp="20181123 12:36:40.134" level="DEBUG">Opened browser with session id 5e2e66fc3a92b4024e76dbddc975f80e</msg>
-<msg timestamp="20181123 12:36:40.134" level="TRACE">Return: 1</msg>
-<status status="PASS" endtime="20181123 12:36:40.134" starttime="20181123 12:36:35.709"></status>
+<robot generated="20181126 15:18:51.899" generator="Robot 3.0.3 (Python 2.7.14 on darwin)">
+<suite source="/Users/david/Desktop/Exercise_Web_Page_RF/robot/Tests/Functional/login_test.robot" id="s1" name="Login Test">
+<test id="s1-t1" name="Headless Browser Correct Loggin">
+<kw name="Start Virtual Display" library="XvfbRobot">
+<doc>Starts virtual display which will be</doc>
+<msg timestamp="20181126 15:18:52.080" level="TRACE">Arguments: [  ]</msg>
+<msg timestamp="20181126 15:18:52.080" level="INFO">Using virtual display: '1440x900x24'</msg>
+<msg timestamp="20181126 15:18:52.082" level="FAIL">EnvironmentError: Can not find Xvfb. Please install it and try again.</msg>
+<msg timestamp="20181126 15:18:52.082" level="DEBUG">Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/XvfbRobot/__init__.py", line 56, in start_virtual_display
+    int(colordepth), **kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/xvfbwrapper.py", line 41, in __init__
+    raise EnvironmentError(msg)</msg>
+<status status="FAIL" endtime="20181126 15:18:52.082" starttime="20181126 15:18:52.080"></status>
 </kw>
-<kw name="Sleep" library="BuiltIn">
-<doc>Pauses the test executed for the given time.</doc>
-<arguments>
-<arg>3</arg>
-</arguments>
-<msg timestamp="20181123 12:36:40.135" level="TRACE">Arguments: [ '3' ]</msg>
-<msg timestamp="20181123 12:36:43.136" level="INFO">Slept 3 seconds</msg>
-<msg timestamp="20181123 12:36:43.136" level="TRACE">Return: None</msg>
-<status status="PASS" endtime="20181123 12:36:43.136" starttime="20181123 12:36:40.135"></status>
-</kw>
-<msg timestamp="20181123 12:36:43.137" level="TRACE">Return: None</msg>
-<status status="PASS" endtime="20181123 12:36:43.137" starttime="20181123 12:36:35.708"></status>
-</kw>
-<kw name="Input user password in loggin page" library="LoginUPO">
-<doc>This keyword will include the provide password in the text field password</doc>
-<arguments>
-<arg>admin123</arg>
-</arguments>
-<msg timestamp="20181123 12:36:43.138" level="TRACE">Arguments: [ ${user_password}='admin123' ]</msg>
-<kw name="Assign User Password Tex to" library="Elements">
-<arguments>
-<arg>USER_PASSWORD</arg>
-</arguments>
-<msg timestamp="20181123 12:36:43.139" level="TRACE">Arguments: [ ${user_password}='USER_PASSWORD' ]</msg>
-<kw name="Assign Id To Element" library="Selenium2Library">
-<doc>Assigns a temporary identifier to element specified by `locator`.</doc>
-<arguments>
-<arg>//*[@id="txtPassword"]</arg>
-<arg>${user_password}</arg>
-</arguments>
-<msg timestamp="20181123 12:36:43.139" level="TRACE">Arguments: [ '//*[@id="txtPassword"]' | 'USER_PASSWORD' ]</msg>
-<msg timestamp="20181123 12:36:43.139" level="INFO">Assigning temporary id 'USER_PASSWORD' to element '//*[@id="txtPassword"]'</msg>
-<msg timestamp="20181123 12:36:43.140" level="DEBUG">POST http://127.0.0.1:53508/session/5e2e66fc3a92b4024e76dbddc975f80e/elements {"using": "xpath", "sessionId": "5e2e66fc3a92b4024e76dbddc975f80e", "value": "//*[@id=\"txtPassword\"]"}</msg>
-<msg timestamp="20181123 12:36:43.156" level="DEBUG">Finished Request</msg>
-<msg timestamp="20181123 12:36:43.157" level="DEBUG">POST http://127.0.0.1:53508/session/5e2e66fc3a92b4024e76dbddc975f80e/execute {"sessionId": "5e2e66fc3a92b4024e76dbddc975f80e", "args": [{"element-6066-11e4-a52e-4f735466cecf": "0.6300354426237516-1", "ELEMENT": "0.6300354426237516-1"}], "script": "arguments[0].id = 'USER_PASSWORD';"}</msg>
-<msg timestamp="20181123 12:36:43.162" level="DEBUG">Finished Request</msg>
-<msg timestamp="20181123 12:36:43.162" level="TRACE">Return: None</msg>
-<status status="PASS" endtime="20181123 12:36:43.162" starttime="20181123 12:36:43.139"></status>
-</kw>
-<msg timestamp="20181123 12:36:43.163" level="TRACE">Return: None</msg>
-<status status="PASS" endtime="20181123 12:36:43.163" starttime="20181123 12:36:43.138"></status>
-</kw>
-<kw name="Clear Element Text" library="Selenium2Library">
-<doc>Clears the text value of text entry element identified by `locator`.</doc>
-<arguments>
-<arg>USER_PASSWORD</arg>
-</arguments>
-<msg timestamp="20181123 12:36:43.163" level="TRACE">Arguments: [ 'USER_PASSWORD' ]</msg>
-<msg timestamp="20181123 12:36:43.163" level="DEBUG">POST http://127.0.0.1:53508/session/5e2e66fc3a92b4024e76dbddc975f80e/elements {"using": "xpath", "sessionId": "5e2e66fc3a92b4024e76dbddc975f80e", "value": "//*[(@id='USER_PASSWORD' or @name='USER_PASSWORD')]"}</msg>
-<msg timestamp="20181123 12:36:43.178" level="DEBUG">Finished Request</msg>
-<msg timestamp="20181123 12:36:43.179" level="DEBUG">POST http://127.0.0.1:53508/session/5e2e66fc3a92b4024e76dbddc975f80e/element/0.6300354426237516-1/clear {"sessionId": "5e2e66fc3a92b4024e76dbddc975f80e", "id": "0.6300354426237516-1"}</msg>
-<msg timestamp="20181123 12:36:43.199" level="DEBUG">Finished Request</msg>
-<msg timestamp="20181123 12:36:43.199" level="TRACE">Return: None</msg>
-<status status="PASS" endtime="20181123 12:36:43.199" starttime="20181123 12:36:43.163"></status>
-</kw>
-<kw name="Input Password" library="Selenium2Library">
-<doc>Types the given password into text field identified by `locator`.</doc>
-<arguments>
-<arg>USER_PASSWORD</arg>
-<arg>${user_password}</arg>
-</arguments>
-<msg timestamp="20181123 12:36:43.200" level="TRACE">Arguments: [ 'USER_PASSWORD' | 'admin123' ]</msg>
-<msg timestamp="20181123 12:36:43.200" level="INFO">Typing password into text field 'USER_PASSWORD'</msg>
-<msg timestamp="20181123 12:36:43.200" level="DEBUG">POST http://127.0.0.1:53508/session/5e2e66fc3a92b4024e76dbddc975f80e/elements {"using": "xpath", "sessionId": "5e2e66fc3a92b4024e76dbddc975f80e", "value": "//*[(@id='USER_PASSWORD' or @name='USER_PASSWORD')]"}</msg>
-<msg timestamp="20181123 12:36:43.210" level="DEBUG">Finished Request</msg>
-<msg timestamp="20181123 12:36:43.210" level="DEBUG">POST http://127.0.0.1:53508/session/5e2e66fc3a92b4024e76dbddc975f80e/element/0.6300354426237516-1/clear {"sessionId": "5e2e66fc3a92b4024e76dbddc975f80e", "id": "0.6300354426237516-1"}</msg>
-<msg timestamp="20181123 12:36:43.218" level="DEBUG">Finished Request</msg>
-<msg timestamp="20181123 12:36:43.218" level="DEBUG">POST http://127.0.0.1:53508/session/5e2e66fc3a92b4024e76dbddc975f80e/element/0.6300354426237516-1/value {"text": "admin123", "sessionId": "5e2e66fc3a92b4024e76dbddc975f80e", "id": "0.6300354426237516-1", "value": ["a", "d", "m", "i", "n", "1", "2", "3"]}</msg>
-<msg timestamp="20181123 12:36:43.286" level="DEBUG">Finished Request</msg>
-<msg timestamp="20181123 12:36:43.287" level="TRACE">Return: None</msg>
-<status status="PASS" endtime="20181123 12:36:43.287" starttime="20181123 12:36:43.199"></status>
-</kw>
-<kw name="Sleep" library="BuiltIn">
-<doc>Pauses the test executed for the given time.</doc>
-<arguments>
-<arg>3</arg>
-</arguments>
-<msg timestamp="20181123 12:36:43.287" level="TRACE">Arguments: [ '3' ]</msg>
-<msg timestamp="20181123 12:36:46.287" level="INFO">Slept 3 seconds</msg>
-<msg timestamp="20181123 12:36:46.287" level="TRACE">Return: None</msg>
-<status status="PASS" endtime="20181123 12:36:46.288" starttime="20181123 12:36:43.287"></status>
-</kw>
-<msg timestamp="20181123 12:36:46.288" level="TRACE">Return: None</msg>
-<status status="PASS" endtime="20181123 12:36:46.288" starttime="20181123 12:36:43.137"></status>
-</kw>
-<kw name="Do login" library="LoginUPO">
-<doc>This tkeyword will locate the button sig in and it will be click on this</doc>
-<msg timestamp="20181123 12:36:46.289" level="TRACE">Arguments: [  ]</msg>
-<kw name="Assign Loggin Button to" library="Elements">
-<arguments>
-<arg>LOGIN_BTN</arg>
-</arguments>
-<msg timestamp="20181123 12:36:46.289" level="TRACE">Arguments: [ ${loggin_btn}='LOGIN_BTN' ]</msg>
-<kw name="Assign Id To Element" library="Selenium2Library">
-<doc>Assigns a temporary identifier to element specified by `locator`.</doc>
-<arguments>
-<arg>//*[@id="btnLogin"]</arg>
-<arg>${loggin_btn}</arg>
-</arguments>
-<msg timestamp="20181123 12:36:46.290" level="TRACE">Arguments: [ '//*[@id="btnLogin"]' | 'LOGIN_BTN' ]</msg>
-<msg timestamp="20181123 12:36:46.290" level="INFO">Assigning temporary id 'LOGIN_BTN' to element '//*[@id="btnLogin"]'</msg>
-<msg timestamp="20181123 12:36:46.290" level="DEBUG">POST http://127.0.0.1:53508/session/5e2e66fc3a92b4024e76dbddc975f80e/elements {"using": "xpath", "sessionId": "5e2e66fc3a92b4024e76dbddc975f80e", "value": "//*[@id=\"btnLogin\"]"}</msg>
-<msg timestamp="20181123 12:36:46.304" level="DEBUG">Finished Request</msg>
-<msg timestamp="20181123 12:36:46.304" level="DEBUG">POST http://127.0.0.1:53508/session/5e2e66fc3a92b4024e76dbddc975f80e/execute {"sessionId": "5e2e66fc3a92b4024e76dbddc975f80e", "args": [{"element-6066-11e4-a52e-4f735466cecf": "0.6300354426237516-2", "ELEMENT": "0.6300354426237516-2"}], "script": "arguments[0].id = 'LOGIN_BTN';"}</msg>
-<msg timestamp="20181123 12:36:46.310" level="DEBUG">Finished Request</msg>
-<msg timestamp="20181123 12:36:46.310" level="TRACE">Return: None</msg>
-<status status="PASS" endtime="20181123 12:36:46.310" starttime="20181123 12:36:46.289"></status>
-</kw>
-<msg timestamp="20181123 12:36:46.310" level="TRACE">Return: None</msg>
-<status status="PASS" endtime="20181123 12:36:46.310" starttime="20181123 12:36:46.289"></status>
-</kw>
-<kw name="Click Element" library="Selenium2Library">
-<doc>Click element identified by `locator`.</doc>
-<arguments>
-<arg>LOGIN_BTN</arg>
-</arguments>
-<msg timestamp="20181123 12:36:46.311" level="TRACE">Arguments: [ 'LOGIN_BTN' ]</msg>
-<msg timestamp="20181123 12:36:46.311" level="INFO">Clicking element 'LOGIN_BTN'.</msg>
-<msg timestamp="20181123 12:36:46.311" level="DEBUG">POST http://127.0.0.1:53508/session/5e2e66fc3a92b4024e76dbddc975f80e/elements {"using": "xpath", "sessionId": "5e2e66fc3a92b4024e76dbddc975f80e", "value": "//*[(@id='LOGIN_BTN' or @name='LOGIN_BTN')]"}</msg>
-<msg timestamp="20181123 12:36:46.324" level="DEBUG">Finished Request</msg>
-<msg timestamp="20181123 12:36:46.324" level="DEBUG">POST http://127.0.0.1:53508/session/5e2e66fc3a92b4024e76dbddc975f80e/element/0.6300354426237516-2/click {"sessionId": "5e2e66fc3a92b4024e76dbddc975f80e", "id": "0.6300354426237516-2"}</msg>
-<msg timestamp="20181123 12:36:46.363" level="DEBUG">Finished Request</msg>
-<msg timestamp="20181123 12:36:46.363" level="TRACE">Return: None</msg>
-<status status="PASS" endtime="20181123 12:36:46.363" starttime="20181123 12:36:46.311"></status>
-</kw>
-<kw name="Sleep" library="BuiltIn">
-<doc>Pauses the test executed for the given time.</doc>
-<arguments>
-<arg>3</arg>
-</arguments>
-<msg timestamp="20181123 12:36:46.364" level="TRACE">Arguments: [ '3' ]</msg>
-<msg timestamp="20181123 12:36:49.364" level="INFO">Slept 3 seconds</msg>
-<msg timestamp="20181123 12:36:49.364" level="TRACE">Return: None</msg>
-<status status="PASS" endtime="20181123 12:36:49.364" starttime="20181123 12:36:46.363"></status>
-</kw>
-<msg timestamp="20181123 12:36:49.365" level="TRACE">Return: None</msg>
-<status status="PASS" endtime="20181123 12:36:49.365" starttime="20181123 12:36:46.288"></status>
-</kw>
-<kw name="Page Should Contain" library="Selenium2Library">
-<doc>Verifies that current page contains `text`.</doc>
-<arguments>
-<arg>Username cannot be empty</arg>
-</arguments>
-<msg timestamp="20181123 12:36:49.365" level="TRACE">Arguments: [ 'Username cannot be empty' ]</msg>
-<msg timestamp="20181123 12:36:49.371" level="DEBUG">POST http://127.0.0.1:53508/session/5e2e66fc3a92b4024e76dbddc975f80e/frame {"sessionId": "5e2e66fc3a92b4024e76dbddc975f80e", "id": null}</msg>
-<msg timestamp="20181123 12:36:49.375" level="DEBUG">Finished Request</msg>
-<msg timestamp="20181123 12:36:49.375" level="DEBUG">POST http://127.0.0.1:53508/session/5e2e66fc3a92b4024e76dbddc975f80e/elements {"using": "xpath", "sessionId": "5e2e66fc3a92b4024e76dbddc975f80e", "value": "//*[contains(., 'Username cannot be empty')]"}</msg>
-<msg timestamp="20181123 12:36:49.388" level="DEBUG">Finished Request</msg>
-<msg timestamp="20181123 12:36:49.388" level="INFO">Current page contains text 'Username cannot be empty'.</msg>
-<msg timestamp="20181123 12:36:49.389" level="TRACE">Return: None</msg>
-<status status="PASS" endtime="20181123 12:36:49.389" starttime="20181123 12:36:49.365"></status>
-</kw>
-<tags>
-<tag>loggin</tag>
-</tags>
-<status status="PASS" endtime="20181123 12:36:49.389" critical="yes" starttime="20181123 12:36:35.708"></status>
+<status status="FAIL" endtime="20181126 15:18:52.082" critical="yes" starttime="20181126 15:18:52.080">EnvironmentError: Can not find Xvfb. Please install it and try again.</status>
 </test>
-<status status="PASS" endtime="20181123 12:36:49.391" starttime="20181123 12:36:35.505"></status>
+<status status="FAIL" endtime="20181126 15:18:52.083" starttime="20181126 15:18:51.902"></status>
 </suite>
 <statistics>
 <total>
-<stat fail="0" pass="1">Critical Tests</stat>
-<stat fail="0" pass="1">All Tests</stat>
+<stat fail="1" pass="0">Critical Tests</stat>
+<stat fail="1" pass="0">All Tests</stat>
 </total>
 <tag>
-<stat fail="0" pass="1">loggin</stat>
 </tag>
 <suite>
-<stat fail="0" id="s1" name="Login Test" pass="1">Login Test</stat>
+<stat fail="1" id="s1" name="Login Test" pass="0">Login Test</stat>
 </suite>
 </statistics>
 <errors>
-<msg timestamp="20181123 12:36:35.707" level="ERROR">Error in file '/Users/david/Desktop/Exercise_Web_Page/robot/Resources/Workflows.robot': Resource file 'Resources/PageObject/LoginUPO.robot' does not exist.</msg>
 </errors>
 </robot>

@@ -2,6 +2,7 @@
 Library     Selenium2Library
 Library     Collections
 Library     String
+Library     XvfbRobot
 Resource    ../../Resources/PageObject/LoginUPO.robot
 Resource    ../../Resources/Workflows.robot
 *** Variables ***
@@ -54,6 +55,16 @@ Invalid Password
     Input user password in loggin page  admin1234
     Do login
     page should contain  Invalid credentials
+
+Headless Browser Correct Loggin
+    Start Virtual Display
+    Open Browser and go to orangehrm
+    Set Window Size    1920    1080
+    Input user name in loggin page  Admin
+    Input user password in loggin page  admin123
+    Do login
+    location should be  ${URL_LOGIN}
+
 
 
 
