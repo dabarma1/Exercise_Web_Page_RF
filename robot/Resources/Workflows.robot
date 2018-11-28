@@ -29,7 +29,11 @@ Set up Add Job
     Open Browser and go to orangehrm
     Loggin as Admin
     Click On Admin Section
-    sleep   1
+    Click On Job Section
+    Click On Job Management Section
+
+
+
 
 Add New Job
     [Documentation]     Add New Job

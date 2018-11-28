@@ -31,13 +31,14 @@ Click On Job Management Section
     Assign Job Management Access    JOB_TITLE_SECTION
     Wait Until Element Is Visible    JOB_TITLE_SECTION
     click element    JOB_TITLE_SECTION
+    sleep   1
 
 Click On Admin Section
     [Documentation]    This keyword Click on Admin Section
-    sleep   1
     Assign Admin access    JOB_ADMIN_SECTION
     Wait Until Element Is Visible    JOB_ADMIN_SECTION
     click element    JOB_ADMIN_SECTION
+    sleep   1
 
 Job Management Click On QA Checkbox
     [Documentation]    This keyword Click On Checkbox to select all Jobs

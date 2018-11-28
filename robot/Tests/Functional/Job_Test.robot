@@ -42,14 +42,11 @@ Delete Job to table
 Add Job To Table
     [Arguments]    ${job_title_expected}    ${job_description_expected}
     [Documentation]    Keyword to add job
-    Click On Job Section
-    Click On Job Management Section
     Job Management Click On Add Button
     Fill Title Job    ${job_title_expected}
     Fill Description Job    ${job_description_expected}
     Click On Save Button
     ${count}    Job Managemment Number of Jobs
-    log to console    ${count}
     : FOR    ${i}    IN RANGE    1    ${count} + 1
     \    ${current_title_job}    Job Management Get Title Job    ${i}
     \    ${exit_for_loop}    Run Keyword And Return Status    should be equal    ${current_title_job}    ${job_title_expected}
