@@ -1,27 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generated="20181126 20:59:08.610" generator="Robot 3.0.4 (Python 2.7.14 on win32)">
+<robot generated="20181128 08:19:48.377" generator="Robot 3.0.4 (Python 2.7.14 on win32)">
 <suite source="C:\Users\alexi\Desktop\Exercise_Web\robot\Tests\Functional\Job_Test.robot" id="s1" name="Job Test">
-<test id="s1-t1" name="Add Job to table">
-<kw type="setup" name="Set up Add Job" library="Workflows">
+<test id="s1-t1" name="Delete Job to table">
+<kw type="setup" name="Open Browser and go to orangehrm" library="Workflows">
 <kw name="Open Browser" library="Selenium2Library">
 <doc>Opens a new browser instance to given URL.</doc>
 <arguments>
 <arg>https://opensource-demo.orangehrmlive.com/</arg>
-<arg>Firefox</arg>
+<arg>firefox</arg>
 </arguments>
-<msg timestamp="20181126 20:59:09.178" level="INFO">Opening browser 'Firefox' to base url 'https://opensource-demo.orangehrmlive.com/'</msg>
-<status status="PASS" endtime="20181126 20:59:18.381" starttime="20181126 20:59:09.177"></status>
+<msg timestamp="20181128 08:19:50.111" level="INFO">Opening browser 'firefox' to base url 'https://opensource-demo.orangehrmlive.com/'</msg>
+<status status="PASS" endtime="20181128 08:19:56.922" starttime="20181128 08:19:50.111"></status>
 </kw>
 <kw name="Sleep" library="BuiltIn">
 <doc>Pauses the test executed for the given time.</doc>
 <arguments>
 <arg>3</arg>
 </arguments>
-<msg timestamp="20181126 20:59:21.383" level="INFO">Slept 3 seconds</msg>
-<status status="PASS" endtime="20181126 20:59:21.383" starttime="20181126 20:59:18.382"></status>
+<msg timestamp="20181128 08:19:59.924" level="INFO">Slept 3 seconds</msg>
+<status status="PASS" endtime="20181128 08:19:59.924" starttime="20181128 08:19:56.922"></status>
 </kw>
-<kw name="LoginWF" library="Workflows">
-<doc>Do Login</doc>
+<status status="PASS" endtime="20181128 08:19:59.925" starttime="20181128 08:19:50.111"></status>
+</kw>
+<kw name="Loggin as Admin" library="Workflows">
 <kw name="Input user name in loggin page" library="LoginUPO">
 <doc>This keyword will include the provide username in the thext fiel user name</doc>
 <arguments>
@@ -37,17 +38,17 @@
 <arg>//*[@id="txtUsername"]</arg>
 <arg>${user_name}</arg>
 </arguments>
-<msg timestamp="20181126 20:59:21.388" level="INFO">Assigning temporary id 'USER_NAME' to element '//*[@id="txtUsername"]'</msg>
-<status status="PASS" endtime="20181126 20:59:21.418" starttime="20181126 20:59:21.387"></status>
+<msg timestamp="20181128 08:19:59.930" level="INFO">Assigning temporary id 'USER_NAME' to element '//*[@id="txtUsername"]'</msg>
+<status status="PASS" endtime="20181128 08:19:59.952" starttime="20181128 08:19:59.929"></status>
 </kw>
-<status status="PASS" endtime="20181126 20:59:21.419" starttime="20181126 20:59:21.386"></status>
+<status status="PASS" endtime="20181128 08:19:59.953" starttime="20181128 08:19:59.928"></status>
 </kw>
 <kw name="Clear Element Text" library="Selenium2Library">
 <doc>Clears the text value of text entry element identified by `locator`.</doc>
 <arguments>
 <arg>USER_NAME</arg>
 </arguments>
-<status status="PASS" endtime="20181126 20:59:21.444" starttime="20181126 20:59:21.419"></status>
+<status status="PASS" endtime="20181128 08:19:59.968" starttime="20181128 08:19:59.953"></status>
 </kw>
 <kw name="Input Text" library="Selenium2Library">
 <doc>Types the given `text` into text field identified by `locator`.</doc>
@@ -55,10 +56,10 @@
 <arg>USER_NAME</arg>
 <arg>${user_name}</arg>
 </arguments>
-<msg timestamp="20181126 20:59:21.446" level="INFO">Typing text 'Admin' into text field 'USER_NAME'</msg>
-<status status="PASS" endtime="20181126 20:59:21.511" starttime="20181126 20:59:21.445"></status>
+<msg timestamp="20181128 08:19:59.968" level="INFO">Typing text 'Admin' into text field 'USER_NAME'</msg>
+<status status="PASS" endtime="20181128 08:20:00.006" starttime="20181128 08:19:59.968"></status>
 </kw>
-<status status="PASS" endtime="20181126 20:59:21.512" starttime="20181126 20:59:21.385"></status>
+<status status="PASS" endtime="20181128 08:20:00.007" starttime="20181128 08:19:59.927"></status>
 </kw>
 <kw name="Input user password in loggin page" library="LoginUPO">
 <doc>This keyword will include the provide password in the text field password</doc>
@@ -75,17 +76,17 @@
 <arg>//*[@id="txtPassword"]</arg>
 <arg>${user_password}</arg>
 </arguments>
-<msg timestamp="20181126 20:59:21.516" level="INFO">Assigning temporary id 'USER_PASSWORD' to element '//*[@id="txtPassword"]'</msg>
-<status status="PASS" endtime="20181126 20:59:21.535" starttime="20181126 20:59:21.515"></status>
+<msg timestamp="20181128 08:20:00.011" level="INFO">Assigning temporary id 'USER_PASSWORD' to element '//*[@id="txtPassword"]'</msg>
+<status status="PASS" endtime="20181128 08:20:00.025" starttime="20181128 08:20:00.010"></status>
 </kw>
-<status status="PASS" endtime="20181126 20:59:21.536" starttime="20181126 20:59:21.514"></status>
+<status status="PASS" endtime="20181128 08:20:00.026" starttime="20181128 08:20:00.009"></status>
 </kw>
 <kw name="Clear Element Text" library="Selenium2Library">
 <doc>Clears the text value of text entry element identified by `locator`.</doc>
 <arguments>
 <arg>USER_PASSWORD</arg>
 </arguments>
-<status status="PASS" endtime="20181126 20:59:21.557" starttime="20181126 20:59:21.536"></status>
+<status status="PASS" endtime="20181128 08:20:00.037" starttime="20181128 08:20:00.026"></status>
 </kw>
 <kw name="Input Password" library="Selenium2Library">
 <doc>Types the given password into text field identified by `locator`.</doc>
@@ -93,10 +94,10 @@
 <arg>USER_PASSWORD</arg>
 <arg>${user_password}</arg>
 </arguments>
-<msg timestamp="20181126 20:59:21.558" level="INFO">Typing password into text field 'USER_PASSWORD'</msg>
-<status status="PASS" endtime="20181126 20:59:21.610" starttime="20181126 20:59:21.557"></status>
+<msg timestamp="20181128 08:20:00.038" level="INFO">Typing password into text field 'USER_PASSWORD'</msg>
+<status status="PASS" endtime="20181128 08:20:00.057" starttime="20181128 08:20:00.038"></status>
 </kw>
-<status status="PASS" endtime="20181126 20:59:21.610" starttime="20181126 20:59:21.513"></status>
+<status status="PASS" endtime="20181128 08:20:00.057" starttime="20181128 08:20:00.008"></status>
 </kw>
 <kw name="Do login" library="LoginUPO">
 <doc>This tkeyword will locate the button sig in and it will be click on this</doc>
@@ -110,42 +111,48 @@
 <arg>//*[@id="btnLogin"]</arg>
 <arg>${loggin_btn}</arg>
 </arguments>
-<msg timestamp="20181126 20:59:21.613" level="INFO">Assigning temporary id 'LOGIN_BTN' to element '//*[@id="btnLogin"]'</msg>
-<status status="PASS" endtime="20181126 20:59:21.629" starttime="20181126 20:59:21.613"></status>
+<msg timestamp="20181128 08:20:00.058" level="INFO">Assigning temporary id 'LOGIN_BTN' to element '//*[@id="btnLogin"]'</msg>
+<status status="PASS" endtime="20181128 08:20:00.064" starttime="20181128 08:20:00.058"></status>
 </kw>
-<status status="PASS" endtime="20181126 20:59:21.629" starttime="20181126 20:59:21.612"></status>
+<status status="PASS" endtime="20181128 08:20:00.065" starttime="20181128 08:20:00.058"></status>
 </kw>
 <kw name="Click Element" library="Selenium2Library">
 <doc>Click element identified by `locator`.</doc>
 <arguments>
 <arg>LOGIN_BTN</arg>
 </arguments>
-<msg timestamp="20181126 20:59:21.630" level="INFO">Clicking element 'LOGIN_BTN'.</msg>
-<status status="PASS" endtime="20181126 20:59:23.824" starttime="20181126 20:59:21.630"></status>
+<msg timestamp="20181128 08:20:00.065" level="INFO">Clicking element 'LOGIN_BTN'.</msg>
+<status status="PASS" endtime="20181128 08:20:01.669" starttime="20181128 08:20:00.065"></status>
 </kw>
 <kw name="Sleep" library="BuiltIn">
 <doc>Pauses the test executed for the given time.</doc>
 <arguments>
 <arg>3</arg>
 </arguments>
-<msg timestamp="20181126 20:59:26.825" level="INFO">Slept 3 seconds</msg>
-<status status="PASS" endtime="20181126 20:59:26.825" starttime="20181126 20:59:23.825"></status>
+<msg timestamp="20181128 08:20:04.671" level="INFO">Slept 3 seconds</msg>
+<status status="PASS" endtime="20181128 08:20:04.671" starttime="20181128 08:20:01.669"></status>
 </kw>
-<status status="PASS" endtime="20181126 20:59:26.826" starttime="20181126 20:59:21.611"></status>
+<status status="PASS" endtime="20181128 08:20:04.672" starttime="20181128 08:20:00.057"></status>
 </kw>
-<status status="PASS" endtime="20181126 20:59:26.826" starttime="20181126 20:59:21.384"></status>
+<status status="PASS" endtime="20181128 08:20:04.672" starttime="20181128 08:19:59.926"></status>
 </kw>
-<status status="PASS" endtime="20181126 20:59:26.827" starttime="20181126 20:59:09.176"></status>
-</kw>
-<kw name="Add Job To Table">
-<doc>Keyword to add job</doc>
+<kw name="Add New Job" library="Workflows">
+<doc>Add New Job</doc>
 <arguments>
-<arg>QA Analyst</arg>
-<arg>QA Methodologies</arg>
+<arg>Recruiter</arg>
+<arg>Manage people</arg>
 </arguments>
-<kw name="Click On Admin Section" library="JobTitleUPO">
+<kw name="Click On Admin Section" library="JobManagementUPO">
 <doc>This keyword Click on Admin Section</doc>
-<kw name="Assign Admin access" library="jobtitle_Section_elements">
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>1</arg>
+</arguments>
+<msg timestamp="20181128 08:20:05.676" level="INFO">Slept 1 second</msg>
+<status status="PASS" endtime="20181128 08:20:05.676" starttime="20181128 08:20:04.675"></status>
+</kw>
+<kw name="Assign Admin access" library="jobManagement_elements">
 <arguments>
 <arg>JOB_ADMIN_SECTION</arg>
 </arguments>
@@ -155,31 +162,31 @@
 <arg>//*[@id="menu_admin_viewAdminModule"]</arg>
 <arg>${admin_access}</arg>
 </arguments>
-<msg timestamp="20181126 20:59:26.832" level="INFO">Assigning temporary id 'JOB_ADMIN_SECTION' to element '//*[@id="menu_admin_viewAdminModule"]'</msg>
-<status status="PASS" endtime="20181126 20:59:26.868" starttime="20181126 20:59:26.831"></status>
+<msg timestamp="20181128 08:20:05.679" level="INFO">Assigning temporary id 'JOB_ADMIN_SECTION' to element '//*[@id="menu_admin_viewAdminModule"]'</msg>
+<status status="PASS" endtime="20181128 08:20:05.720" starttime="20181128 08:20:05.678"></status>
 </kw>
-<status status="PASS" endtime="20181126 20:59:26.869" starttime="20181126 20:59:26.830"></status>
+<status status="PASS" endtime="20181128 08:20:05.721" starttime="20181128 08:20:05.677"></status>
 </kw>
 <kw name="Wait Until Element Is Visible" library="Selenium2Library">
 <doc>Waits until element specified with `locator` is visible.</doc>
 <arguments>
 <arg>JOB_ADMIN_SECTION</arg>
 </arguments>
-<status status="PASS" endtime="20181126 20:59:26.923" starttime="20181126 20:59:26.869"></status>
+<status status="PASS" endtime="20181128 08:20:05.790" starttime="20181128 08:20:05.721"></status>
 </kw>
 <kw name="Click Element" library="Selenium2Library">
 <doc>Click element identified by `locator`.</doc>
 <arguments>
 <arg>JOB_ADMIN_SECTION</arg>
 </arguments>
-<msg timestamp="20181126 20:59:26.924" level="INFO">Clicking element 'JOB_ADMIN_SECTION'.</msg>
-<status status="PASS" endtime="20181126 20:59:27.927" starttime="20181126 20:59:26.924"></status>
+<msg timestamp="20181128 08:20:05.791" level="INFO">Clicking element 'JOB_ADMIN_SECTION'.</msg>
+<status status="PASS" endtime="20181128 08:20:06.791" starttime="20181128 08:20:05.790"></status>
 </kw>
-<status status="PASS" endtime="20181126 20:59:27.928" starttime="20181126 20:59:26.829"></status>
+<status status="PASS" endtime="20181128 08:20:06.791" starttime="20181128 08:20:04.674"></status>
 </kw>
-<kw name="Click On Job Section" library="JobTitleUPO">
+<kw name="Click On Job Section" library="JobManagementUPO">
 <doc>This keyword Click on Job Section</doc>
-<kw name="Assign Job Section Access" library="jobtitle_Section_elements">
+<kw name="Assign Job Section Access" library="jobManagement_elements">
 <arguments>
 <arg>JOB_SECTION</arg>
 </arguments>
@@ -189,39 +196,39 @@
 <arg>//*[@id="menu_admin_Job"]</arg>
 <arg>${job_section}</arg>
 </arguments>
-<msg timestamp="20181126 20:59:27.932" level="INFO">Assigning temporary id 'JOB_SECTION' to element '//*[@id="menu_admin_Job"]'</msg>
-<status status="PASS" endtime="20181126 20:59:27.967" starttime="20181126 20:59:27.931"></status>
+<msg timestamp="20181128 08:20:06.791" level="INFO">Assigning temporary id 'JOB_SECTION' to element '//*[@id="menu_admin_Job"]'</msg>
+<status status="PASS" endtime="20181128 08:20:06.807" starttime="20181128 08:20:06.791"></status>
 </kw>
-<status status="PASS" endtime="20181126 20:59:27.967" starttime="20181126 20:59:27.930"></status>
+<status status="PASS" endtime="20181128 08:20:06.807" starttime="20181128 08:20:06.791"></status>
 </kw>
 <kw name="Wait Until Element Is Visible" library="Selenium2Library">
 <doc>Waits until element specified with `locator` is visible.</doc>
 <arguments>
 <arg>JOB_SECTION</arg>
 </arguments>
-<status status="PASS" endtime="20181126 20:59:28.045" starttime="20181126 20:59:27.968"></status>
+<status status="PASS" endtime="20181128 08:20:06.823" starttime="20181128 08:20:06.807"></status>
 </kw>
 <kw name="Double Click Element" library="Selenium2Library">
 <doc>Double click element identified by `locator`.</doc>
 <arguments>
 <arg>JOB_SECTION</arg>
 </arguments>
-<msg timestamp="20181126 20:59:28.046" level="INFO">Double clicking element 'JOB_SECTION'.</msg>
-<status status="PASS" endtime="20181126 20:59:28.391" starttime="20181126 20:59:28.045"></status>
-</kw>
-<status status="PASS" endtime="20181126 20:59:28.392" starttime="20181126 20:59:27.928"></status>
+<msg timestamp="20181128 08:20:06.823" level="INFO">Double clicking element 'JOB_SECTION'.</msg>
+<status status="PASS" endtime="20181128 08:20:07.151" starttime="20181128 08:20:06.823"></status>
 </kw>
 <kw name="Sleep" library="BuiltIn">
 <doc>Pauses the test executed for the given time.</doc>
 <arguments>
 <arg>1</arg>
 </arguments>
-<msg timestamp="20181126 20:59:29.393" level="INFO">Slept 1 second</msg>
-<status status="PASS" endtime="20181126 20:59:29.393" starttime="20181126 20:59:28.393"></status>
+<msg timestamp="20181128 08:20:08.151" level="INFO">Slept 1 second</msg>
+<status status="PASS" endtime="20181128 08:20:08.151" starttime="20181128 08:20:07.151"></status>
 </kw>
-<kw name="Click On Job Title Section" library="JobTitleUPO">
+<status status="PASS" endtime="20181128 08:20:08.151" starttime="20181128 08:20:06.791"></status>
+</kw>
+<kw name="Click On Job Management Section" library="JobManagementUPO">
 <doc>This keyword Click on Job Title Section</doc>
-<kw name="Assign Job Title Page Access" library="jobtitle_Section_elements">
+<kw name="Assign Job Management Access" library="jobManagement_elements">
 <arguments>
 <arg>JOB_TITLE_SECTION</arg>
 </arguments>
@@ -231,121 +238,264 @@
 <arg>//*[@id="menu_admin_viewJobTitleList"]</arg>
 <arg>${job_title_section}</arg>
 </arguments>
-<msg timestamp="20181126 20:59:29.396" level="INFO">Assigning temporary id 'JOB_TITLE_SECTION' to element '//*[@id="menu_admin_viewJobTitleList"]'</msg>
-<status status="PASS" endtime="20181126 20:59:29.421" starttime="20181126 20:59:29.396"></status>
+<msg timestamp="20181128 08:20:08.151" level="INFO">Assigning temporary id 'JOB_TITLE_SECTION' to element '//*[@id="menu_admin_viewJobTitleList"]'</msg>
+<status status="PASS" endtime="20181128 08:20:08.182" starttime="20181128 08:20:08.151"></status>
 </kw>
-<status status="PASS" endtime="20181126 20:59:29.422" starttime="20181126 20:59:29.395"></status>
+<status status="PASS" endtime="20181128 08:20:08.182" starttime="20181128 08:20:08.151"></status>
 </kw>
 <kw name="Wait Until Element Is Visible" library="Selenium2Library">
 <doc>Waits until element specified with `locator` is visible.</doc>
 <arguments>
 <arg>JOB_TITLE_SECTION</arg>
 </arguments>
+<status status="PASS" endtime="20181128 08:20:08.229" starttime="20181128 08:20:08.182"></status>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>JOB_TITLE_SECTION</arg>
+</arguments>
+<msg timestamp="20181128 08:20:08.229" level="INFO">Clicking element 'JOB_TITLE_SECTION'.</msg>
+<status status="PASS" endtime="20181128 08:20:10.447" starttime="20181128 08:20:08.229"></status>
+</kw>
+<status status="PASS" endtime="20181128 08:20:10.447" starttime="20181128 08:20:08.151"></status>
+</kw>
+<kw name="Job Management Click On Add Button" library="JobManagementUPO">
+<doc>This keyword Click on "Add" Button</doc>
+<kw name="Assign Add Btn Job Management" library="jobManagement_elements">
+<arguments>
+<arg>ADD_BUTTON</arg>
+</arguments>
+<kw name="Assign Id To Element" library="Selenium2Library">
+<doc>Assigns a temporary identifier to element specified by `locator`.</doc>
+<arguments>
+<arg>//*[@id="btnAdd"]</arg>
+<arg>${add_btn}</arg>
+</arguments>
+<msg timestamp="20181128 08:20:10.447" level="INFO">Assigning temporary id 'ADD_BUTTON' to element '//*[@id="btnAdd"]'</msg>
+<status status="PASS" endtime="20181128 08:20:10.463" starttime="20181128 08:20:10.447"></status>
+</kw>
+<status status="PASS" endtime="20181128 08:20:10.463" starttime="20181128 08:20:10.447"></status>
+</kw>
+<kw name="Click Button" library="Selenium2Library">
+<doc>Clicks a button identified by `locator`.</doc>
+<arguments>
+<arg>ADD_BUTTON</arg>
+</arguments>
+<msg timestamp="20181128 08:20:10.463" level="INFO">Clicking button 'ADD_BUTTON'.</msg>
+<status status="PASS" endtime="20181128 08:20:10.978" starttime="20181128 08:20:10.463"></status>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>1</arg>
+</arguments>
+<msg timestamp="20181128 08:20:11.978" level="INFO">Slept 1 second</msg>
+<status status="PASS" endtime="20181128 08:20:11.978" starttime="20181128 08:20:10.978"></status>
+</kw>
+<status status="PASS" endtime="20181128 08:20:11.978" starttime="20181128 08:20:10.447"></status>
+</kw>
+<kw name="Fill Title Job" library="addNewJobUPO">
+<doc>This keyword Click on Job Section</doc>
+<arguments>
+<arg>${job_title}</arg>
+</arguments>
+<kw name="Assign Title Job" library="addNewJob_Section_elements">
+<arguments>
+<arg>JOB_TITLE</arg>
+</arguments>
+<kw name="Assign Id To Element" library="Selenium2Library">
+<doc>Assigns a temporary identifier to element specified by `locator`.</doc>
+<arguments>
+<arg>//*[@id="jobTitle_jobTitle"]</arg>
+<arg>${title_job}</arg>
+</arguments>
+<msg timestamp="20181128 08:20:11.978" level="INFO">Assigning temporary id 'JOB_TITLE' to element '//*[@id="jobTitle_jobTitle"]'</msg>
+<status status="PASS" endtime="20181128 08:20:11.994" starttime="20181128 08:20:11.978"></status>
+</kw>
+<status status="PASS" endtime="20181128 08:20:11.994" starttime="20181128 08:20:11.978"></status>
+</kw>
+<kw name="Wait Until Element Is Visible" library="Selenium2Library">
+<doc>Waits until element specified with `locator` is visible.</doc>
+<arguments>
+<arg>JOB_TITLE</arg>
+</arguments>
+<status status="PASS" endtime="20181128 08:20:12.041" starttime="20181128 08:20:11.994"></status>
+</kw>
+<kw name="Clear Element Text" library="Selenium2Library">
+<doc>Clears the text value of text entry element identified by `locator`.</doc>
+<arguments>
+<arg>JOB_TITLE</arg>
+</arguments>
+<status status="PASS" endtime="20181128 08:20:12.041" starttime="20181128 08:20:12.041"></status>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<arguments>
+<arg>JOB_TITLE</arg>
+<arg>${title_job}</arg>
+</arguments>
+<msg timestamp="20181128 08:20:12.041" level="INFO">Typing text 'Recruiter' into text field 'JOB_TITLE'</msg>
+<status status="PASS" endtime="20181128 08:20:12.088" starttime="20181128 08:20:12.041"></status>
+</kw>
+<status status="PASS" endtime="20181128 08:20:12.088" starttime="20181128 08:20:11.978"></status>
+</kw>
+<kw name="Fill Description Job" library="addNewJobUPO">
+<doc>This keyword Click on Job Title Section</doc>
+<arguments>
+<arg>${job_description}</arg>
+</arguments>
+<kw name="Assign Description Job" library="addNewJob_Section_elements">
+<arguments>
+<arg>JOB_DESCRIPTION</arg>
+</arguments>
+<kw name="Assign Id To Element" library="Selenium2Library">
+<doc>Assigns a temporary identifier to element specified by `locator`.</doc>
+<arguments>
+<arg>//*[@id="jobTitle_jobDescription"]</arg>
+<arg>${description_job}</arg>
+</arguments>
+<msg timestamp="20181128 08:20:12.088" level="INFO">Assigning temporary id 'JOB_DESCRIPTION' to element '//*[@id="jobTitle_jobDescription"]'</msg>
+<status status="PASS" endtime="20181128 08:20:12.088" starttime="20181128 08:20:12.088"></status>
+</kw>
+<status status="PASS" endtime="20181128 08:20:12.088" starttime="20181128 08:20:12.088"></status>
+</kw>
+<kw name="Wait Until Element Is Visible" library="Selenium2Library">
+<doc>Waits until element specified with `locator` is visible.</doc>
+<arguments>
+<arg>JOB_DESCRIPTION</arg>
+</arguments>
+<status status="PASS" endtime="20181128 08:20:12.119" starttime="20181128 08:20:12.088"></status>
+</kw>
+<kw name="Clear Element Text" library="Selenium2Library">
+<doc>Clears the text value of text entry element identified by `locator`.</doc>
+<arguments>
+<arg>JOB_DESCRIPTION</arg>
+</arguments>
+<status status="PASS" endtime="20181128 08:20:12.119" starttime="20181128 08:20:12.119"></status>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<arguments>
+<arg>JOB_DESCRIPTION</arg>
+<arg>${description_job}</arg>
+</arguments>
+<msg timestamp="20181128 08:20:12.119" level="INFO">Typing text 'Manage people' into text field 'JOB_DESCRIPTION'</msg>
+<status status="PASS" endtime="20181128 08:20:12.166" starttime="20181128 08:20:12.119"></status>
+</kw>
+<status status="PASS" endtime="20181128 08:20:12.166" starttime="20181128 08:20:12.088"></status>
+</kw>
+<kw name="Click On Save Button" library="addNewJobUPO">
+<doc>This keyword Click on "Save" Button</doc>
+<kw name="Assign Save Button Job" library="addNewJob_Section_elements">
+<arguments>
+<arg>SAVE_BUTTON</arg>
+</arguments>
+<kw name="Assign Id To Element" library="Selenium2Library">
+<doc>Assigns a temporary identifier to element specified by `locator`.</doc>
+<arguments>
+<arg>//*[@id="btnSave"]</arg>
+<arg>${save_button}</arg>
+</arguments>
+<msg timestamp="20181128 08:20:12.166" level="INFO">Assigning temporary id 'SAVE_BUTTON' to element '//*[@id="btnSave"]'</msg>
+<status status="PASS" endtime="20181128 08:20:12.166" starttime="20181128 08:20:12.166"></status>
+</kw>
+<status status="PASS" endtime="20181128 08:20:12.166" starttime="20181128 08:20:12.166"></status>
+</kw>
+<kw name="Click Button" library="Selenium2Library">
+<doc>Clicks a button identified by `locator`.</doc>
+<arguments>
+<arg>SAVE_BUTTON</arg>
+</arguments>
+<msg timestamp="20181128 08:20:12.182" level="INFO">Clicking button 'SAVE_BUTTON'.</msg>
+<status status="PASS" endtime="20181128 08:20:13.494" starttime="20181128 08:20:12.182"></status>
+</kw>
+<status status="PASS" endtime="20181128 08:20:13.494" starttime="20181128 08:20:12.166"></status>
+</kw>
+<status status="PASS" endtime="20181128 08:20:13.494" starttime="20181128 08:20:04.673"></status>
+</kw>
+<kw name="Job Managemment Number of Jobs" library="JobManagementUPO">
+<doc>This keyword returns the number of jobs registered</doc>
+<assign>
+<var>${count}</var>
+</assign>
+<kw name="Assign Number of Jobs Job Management" library="jobManagement_elements">
+<arguments>
+<arg>JOBS_REGISTERED</arg>
+</arguments>
+<kw name="Assign Id To Element" library="Selenium2Library">
+<doc>Assigns a temporary identifier to element specified by `locator`.</doc>
+<arguments>
+<arg>//*[@id="resultTable"]/tbody/tr/td[2]</arg>
+<arg>${List_table_Elements_number}</arg>
+</arguments>
+<msg timestamp="20181128 08:20:13.494" level="INFO">Assigning temporary id 'JOBS_REGISTERED' to element '//*[@id="resultTable"]/tbody/tr/td[2]'</msg>
+<status status="PASS" endtime="20181128 08:20:13.525" starttime="20181128 08:20:13.494"></status>
+</kw>
+<status status="PASS" endtime="20181128 08:20:13.525" starttime="20181128 08:20:13.494"></status>
+</kw>
+<kw name="Get Matching Xpath Count" library="Selenium2Library">
+<doc>Returns number of elements matching `xpath`</doc>
+<arguments>
+<arg>//*[@id="resultTable"]/tbody/tr/td[2]</arg>
+</arguments>
+<assign>
+<var>${Number_Of_Jobs}</var>
+</assign>
+<msg timestamp="20181128 08:20:13.541" level="INFO">${Number_Of_Jobs} = 10</msg>
+<status status="PASS" endtime="20181128 08:20:13.541" starttime="20181128 08:20:13.525"></status>
+</kw>
+<msg timestamp="20181128 08:20:13.541" level="INFO">${count} = 10</msg>
+<status status="PASS" endtime="20181128 08:20:13.541" starttime="20181128 08:20:13.494"></status>
+</kw>
+<kw name="Job Management Click On QA Checkbox" library="JobManagementUPO">
+<doc>This keyword Click On Checkbox to select all Jobs</doc>
+<kw name="Assign QA Job CheckBox" library="jobManagement_elements">
+<arguments>
+<arg>CHECKBOX_ALL_ELEMENTS</arg>
+</arguments>
+<kw name="Assign Id To Element" library="Selenium2Library">
+<doc>Assigns a temporary identifier to element specified by `locator`.</doc>
+<arguments>
+<arg>//*[@id="ohrmList_chkSelectRecord_11"]</arg>
+<arg>${CEO_Job_CheckBox}</arg>
+</arguments>
+<msg timestamp="20181128 08:20:13.541" level="INFO">Assigning temporary id 'CHECKBOX_ALL_ELEMENTS' to element '//*[@id="ohrmList_chkSelectRecord_11"]'</msg>
 <kw name="Capture Page Screenshot" library="Selenium2Library">
 <doc>Takes a screenshot of the current page and embeds it into the log.</doc>
-<msg timestamp="20181126 20:59:34.802" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-1.png"&gt;&lt;img src="selenium-screenshot-1.png" width="800px"&gt;&lt;/a&gt;</msg>
-<status status="PASS" endtime="20181126 20:59:34.802" starttime="20181126 20:59:34.682"></status>
+<msg timestamp="20181128 08:20:13.619" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-1.png"&gt;&lt;img src="selenium-screenshot-1.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20181128 08:20:13.619" starttime="20181128 08:20:13.541"></status>
 </kw>
-<msg timestamp="20181126 20:59:34.805" level="FAIL">Element 'JOB_TITLE_SECTION' was not visible in 5 seconds</msg>
-<status status="FAIL" endtime="20181126 20:59:34.805" starttime="20181126 20:59:29.422"></status>
+<msg timestamp="20181128 08:20:13.619" level="FAIL">ValueError: Element locator '//*[@id="ohrmList_chkSelectRecord_11"]' did not match any elements.</msg>
+<status status="FAIL" endtime="20181128 08:20:13.619" starttime="20181128 08:20:13.541"></status>
 </kw>
-<status status="FAIL" endtime="20181126 20:59:34.806" starttime="20181126 20:59:29.394"></status>
+<status status="FAIL" endtime="20181128 08:20:13.619" starttime="20181128 08:20:13.541"></status>
 </kw>
-<status status="FAIL" endtime="20181126 20:59:34.806" starttime="20181126 20:59:26.827"></status>
+<status status="FAIL" endtime="20181128 08:20:13.619" starttime="20181128 08:20:13.541"></status>
 </kw>
-<kw name="Add Job To Table">
-<doc>Keyword to add job</doc>
-<arguments>
-<arg>Front-End Developer</arg>
-<arg>Develop tasks</arg>
-</arguments>
-<kw name="Click On Admin Section" library="JobTitleUPO">
-<doc>This keyword Click on Admin Section</doc>
-<kw name="Assign Admin access" library="jobtitle_Section_elements">
-<arguments>
-<arg>JOB_ADMIN_SECTION</arg>
-</arguments>
-<kw name="Assign Id To Element" library="Selenium2Library">
-<doc>Assigns a temporary identifier to element specified by `locator`.</doc>
-<arguments>
-<arg>//*[@id="menu_admin_viewAdminModule"]</arg>
-<arg>${admin_access}</arg>
-</arguments>
-<msg timestamp="20181126 20:59:34.810" level="INFO">Assigning temporary id 'JOB_ADMIN_SECTION' to element '//*[@id="menu_admin_viewAdminModule"]'</msg>
-<status status="PASS" endtime="20181126 20:59:34.827" starttime="20181126 20:59:34.809"></status>
+<kw type="teardown" name="Close Browser" library="Selenium2Library">
+<doc>Closes the current browser.</doc>
+<status status="PASS" endtime="20181128 08:20:14.463" starttime="20181128 08:20:13.619"></status>
 </kw>
-<status status="PASS" endtime="20181126 20:59:34.828" starttime="20181126 20:59:34.808"></status>
-</kw>
-<kw name="Wait Until Element Is Visible" library="Selenium2Library">
-<doc>Waits until element specified with `locator` is visible.</doc>
-<arguments>
-<arg>JOB_ADMIN_SECTION</arg>
-</arguments>
-<status status="PASS" endtime="20181126 20:59:34.887" starttime="20181126 20:59:34.828"></status>
-</kw>
-<kw name="Click Element" library="Selenium2Library">
-<doc>Click element identified by `locator`.</doc>
-<arguments>
-<arg>JOB_ADMIN_SECTION</arg>
-</arguments>
-<msg timestamp="20181126 20:59:34.889" level="INFO">Clicking element 'JOB_ADMIN_SECTION'.</msg>
-<status status="PASS" endtime="20181126 20:59:35.948" starttime="20181126 20:59:34.888"></status>
-</kw>
-<status status="PASS" endtime="20181126 20:59:35.949" starttime="20181126 20:59:34.808"></status>
-</kw>
-<kw name="Click On Job Section" library="JobTitleUPO">
-<doc>This keyword Click on Job Section</doc>
-<kw name="Assign Job Section Access" library="jobtitle_Section_elements">
-<arguments>
-<arg>JOB_SECTION</arg>
-</arguments>
-<kw name="Assign Id To Element" library="Selenium2Library">
-<doc>Assigns a temporary identifier to element specified by `locator`.</doc>
-<arguments>
-<arg>//*[@id="menu_admin_Job"]</arg>
-<arg>${job_section}</arg>
-</arguments>
-<msg timestamp="20181126 20:59:35.954" level="INFO">Assigning temporary id 'JOB_SECTION' to element '//*[@id="menu_admin_Job"]'</msg>
-<status status="PASS" endtime="20181126 20:59:35.987" starttime="20181126 20:59:35.953"></status>
-</kw>
-<status status="PASS" endtime="20181126 20:59:35.987" starttime="20181126 20:59:35.951"></status>
-</kw>
-<kw name="Wait Until Element Is Visible" library="Selenium2Library">
-<doc>Waits until element specified with `locator` is visible.</doc>
-<arguments>
-<arg>JOB_SECTION</arg>
-</arguments>
-<status status="PASS" endtime="20181126 20:59:36.045" starttime="20181126 20:59:35.988"></status>
-</kw>
-<kw name="Double Click Element" library="Selenium2Library">
-<doc>Double click element identified by `locator`.</doc>
-<arguments>
-<arg>JOB_SECTION</arg>
-</arguments>
-<msg timestamp="20181126 20:59:36.046" level="INFO">Double clicking element 'JOB_SECTION'.</msg>
-<status status="PASS" endtime="20181126 20:59:36.382" starttime="20181126 20:59:36.046"></status>
-</kw>
-<status status="PASS" endtime="20181126 20:59:36.383" starttime="20181126 20:59:35.950"></status>
-</kw>
-<kw name="Sleep" library="BuiltIn">
-<doc>Pauses the test executed for the given time.</doc>
-<arguments>
-<arg>1</arg>
-</arguments>
-<msg timestamp="20181126 20:59:37.385" level="INFO">Slept 1 second</msg>
-<status status="PASS" endtime="20181126 20:59:37.385" starttime="20181126 20:59:36.383"></status>
-</kw>
-<kw name="Click On Job Title Section" library="JobTitleUPO">
-<doc>This keyword Click on Job Title Section</doc>
-<kw name="Assign Job Title Page Access" library="jobtitle_Section_elements">
-<arguments>
-<arg>JOB_TITLE_SECTION</arg>
-</arguments>
-<kw name="Assign Id To Element" library="Selenium2Library">
-<doc>Assigns a temporary identifier to element specified by `locator`.</doc>
-<arguments>
-<arg>//*[@id="menu_admin_viewJobTitleList"]</arg>
-<arg>${job_title_section}</arg>
-</arguments>
-<msg timestamp="20181126 20:59:37.390" level="INFO">Assigning temporary id 'JOB_TITLE_SECTION' to element '//*[@id="menu_admin_viewJobTitleList"]'</msg>
-<status status="PASS" endtime="20181126 20:59:37.427" starttime="20181126 20:59:37.389">
+<tags>
+<tag>JobSection</tag>
+</tags>
+<status status="FAIL" endtime="20181128 08:20:14.463" critical="yes" starttime="20181128 08:19:50.111">ValueError: Element locator '//*[@id="ohrmList_chkSelectRecord_11"]' did not match any elements.</status>
+</test>
+<status status="FAIL" endtime="20181128 08:20:14.478" starttime="20181128 08:19:48.393"></status>
+</suite>
+<statistics>
+<total>
+<stat fail="1" pass="0">Critical Tests</stat>
+<stat fail="1" pass="0">All Tests</stat>
+</total>
+<tag>
+<stat fail="1" pass="0">JobSection</stat>
+</tag>
+<suite>
+<stat fail="1" id="s1" name="Job Test" pass="0">Job Test</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
