@@ -11,7 +11,7 @@ Resource    PageObject/addNewJobUPO.robot
 *** Keywords ***
 Open Browser and go to orangehrm
     [Documentation]
-    open browser    https://opensource-demo.orangehrmlive.com/  firefox
+    open browser    https://opensource-demo.orangehrmlive.com/  Chrome
     sleep   3
 Loggin as Admin
     [Documentation]
@@ -31,9 +31,6 @@ Set up Add Job
     Click On Admin Section
     Click On Job Section
     Click On Job Management Section
-
-
-
 
 Add New Job
     [Documentation]     Add New Job
