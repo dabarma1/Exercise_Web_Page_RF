@@ -72,10 +72,6 @@ Check user Admin BE
     ${result}       get request         orange      /index.php/admin/viewSystemUsers
     should be equal as strings  ${result}     <Response [200]>
     @{response}       get request         orange      /index.php/admin/viewSystemUsers
-    @{response}  convert to string   @{response}
-    Should contain      ${result2}      Admin
-
-
-
-
+    ${response}  convert to string   ${response}
+    Should contain      ${response}      Admin
 
