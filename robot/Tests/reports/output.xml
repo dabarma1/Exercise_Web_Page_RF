@@ -1,187 +1,652 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generated="20181123 12:36:35.501" generator="Robot 3.0.3 (Python 2.7.14 on darwin)">
-<suite source="/Users/david/Desktop/Exercise_Web_Page/robot/Tests/Functional/login_test.robot" id="s1" name="Login Test">
-<test id="s1-t1" name="Empty User Name">
-<kw type="setup" name="Open Browser and go to orangehrm" library="Workflows">
-<msg timestamp="20181123 12:36:35.709" level="TRACE">Arguments: [  ]</msg>
-<kw name="Open Browser" library="Selenium2Library">
-<doc>Opens a new browser instance to given URL.</doc>
+<robot generated="20181129 13:57:48.446" generator="Robot 3.0.3 (Python 2.7.14 on darwin)">
+<suite source="/Users/david/Desktop/Exercise_Web_Page_RF/robot/Tests/Functional/login_test.robot" id="s1" name="Login Test">
+<test id="s1-t1" name="Check user Admin BE">
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
 <arguments>
-<arg>https://opensource-demo.orangehrmlive.com/</arg>
-<arg>Chrome</arg>
+<arg>txtUsername=Admin</arg>
+<arg>txtPassword=admin123</arg>
 </arguments>
-<msg timestamp="20181123 12:36:35.709" level="TRACE">Arguments: [ 'https://opensource-demo.orangehrmlive.com/' | 'Chrome' ]</msg>
-<msg timestamp="20181123 12:36:35.709" level="INFO">Opening browser 'Chrome' to base url 'https://opensource-demo.orangehrmlive.com/'</msg>
-<msg timestamp="20181123 12:36:36.744" level="DEBUG">POST http://127.0.0.1:53508/session {"capabilities": {"alwaysMatch": {"goog:chromeOptions": {"args": [], "extensions": []}, "browserName": "chrome", "platformName": "any"}, "firstMatch": [{}]}, "desiredCapabilities": {"goog:chromeOptions": {"args": [], "extensions": []}, "platform": "ANY", "browserName": "chrome", "version": ""}}</msg>
-<msg timestamp="20181123 12:36:37.900" level="DEBUG">Finished Request</msg>
-<msg timestamp="20181123 12:36:37.900" level="DEBUG">POST http://127.0.0.1:53508/session/5e2e66fc3a92b4024e76dbddc975f80e/timeouts/async_script {"sessionId": "5e2e66fc3a92b4024e76dbddc975f80e", "ms": 5000.0}</msg>
-<msg timestamp="20181123 12:36:37.901" level="DEBUG">Finished Request</msg>
-<msg timestamp="20181123 12:36:37.902" level="DEBUG">POST http://127.0.0.1:53508/session/5e2e66fc3a92b4024e76dbddc975f80e/timeouts/implicit_wait {"sessionId": "5e2e66fc3a92b4024e76dbddc975f80e", "ms": 0.0}</msg>
-<msg timestamp="20181123 12:36:37.902" level="DEBUG">Finished Request</msg>
-<msg timestamp="20181123 12:36:37.903" level="DEBUG">POST http://127.0.0.1:53508/session/5e2e66fc3a92b4024e76dbddc975f80e/url {"url": "https://opensource-demo.orangehrmlive.com/", "sessionId": "5e2e66fc3a92b4024e76dbddc975f80e"}</msg>
-<msg timestamp="20181123 12:36:40.134" level="DEBUG">Finished Request</msg>
-<msg timestamp="20181123 12:36:40.134" level="DEBUG">Opened browser with session id 5e2e66fc3a92b4024e76dbddc975f80e</msg>
-<msg timestamp="20181123 12:36:40.134" level="TRACE">Return: 1</msg>
-<status status="PASS" endtime="20181123 12:36:40.134" starttime="20181123 12:36:35.709"></status>
+<assign>
+<var>${data}</var>
+</assign>
+<msg timestamp="20181129 13:57:48.696" level="TRACE">Arguments: [ 'txtUsername=Admin' | 'txtPassword=admin123' ]</msg>
+<msg timestamp="20181129 13:57:48.697" level="TRACE">Return: {'txtPassword': 'admin123', 'txtUsername': 'Admin'}</msg>
+<msg timestamp="20181129 13:57:48.697" level="INFO">${data} = {u'txtUsername': u'Admin', u'txtPassword': u'admin123'}</msg>
+<status status="PASS" endtime="20181129 13:57:48.697" starttime="20181129 13:57:48.696"></status>
 </kw>
-<kw name="Sleep" library="BuiltIn">
-<doc>Pauses the test executed for the given time.</doc>
+<kw name="Create Session" library="RequestsLibrary">
+<doc>Create Session: create a HTTP session to a server</doc>
 <arguments>
-<arg>3</arg>
+<arg>orange</arg>
+<arg>https://opensource-demo.orangehrmlive.com</arg>
 </arguments>
-<msg timestamp="20181123 12:36:40.135" level="TRACE">Arguments: [ '3' ]</msg>
-<msg timestamp="20181123 12:36:43.136" level="INFO">Slept 3 seconds</msg>
-<msg timestamp="20181123 12:36:43.136" level="TRACE">Return: None</msg>
-<status status="PASS" endtime="20181123 12:36:43.136" starttime="20181123 12:36:40.135"></status>
+<msg timestamp="20181129 13:57:48.697" level="TRACE">Arguments: [ 'orange' | 'https://opensource-demo.orangehrmlive.com' ]</msg>
+<msg timestamp="20181129 13:57:48.697" level="INFO">Creating Session using : alias=orange, url=https://opensource-demo.orangehrmlive.com, headers={},                     cookies=None, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<msg timestamp="20181129 13:57:48.697" level="DEBUG">Creating session: orange</msg>
+<msg timestamp="20181129 13:57:48.698" level="DEBUG">Argument types are:
+&lt;type 'bool'&gt;</msg>
+<msg timestamp="20181129 13:57:48.698" level="TRACE">Return: &lt;requests.sessions.Session object at 0x1067cf150&gt;</msg>
+<status status="PASS" endtime="20181129 13:57:48.698" starttime="20181129 13:57:48.697"></status>
 </kw>
-<msg timestamp="20181123 12:36:43.137" level="TRACE">Return: None</msg>
-<status status="PASS" endtime="20181123 12:36:43.137" starttime="20181123 12:36:35.708"></status>
-</kw>
-<kw name="Input user password in loggin page" library="LoginUPO">
-<doc>This keyword will include the provide password in the text field password</doc>
+<kw name="Post Request" library="RequestsLibrary">
+<doc>Send a POST request on the session object found using the</doc>
 <arguments>
-<arg>admin123</arg>
+<arg>orange</arg>
+<arg>/index.php/auth/validateCredentials</arg>
+<arg>${data}</arg>
 </arguments>
-<msg timestamp="20181123 12:36:43.138" level="TRACE">Arguments: [ ${user_password}='admin123' ]</msg>
-<kw name="Assign User Password Tex to" library="Elements">
+<msg timestamp="20181129 13:57:48.698" level="TRACE">Arguments: [ 'orange' | '/index.php/auth/validateCredentials' | {'txtPassword': 'admin123', 'txtUsername': 'Admin'} ]</msg>
+<msg timestamp="20181129 13:57:48.707" level="DEBUG">Starting new HTTPS connection (1): opensource-demo.orangehrmlive.com</msg>
+<msg timestamp="20181129 13:57:49.273" level="DEBUG">https://opensource-demo.orangehrmlive.com:443 "POST /index.php/auth/validateCredentials HTTP/1.1" 200 3385</msg>
+<msg timestamp="20181129 13:57:49.275" level="DEBUG">post response: &lt;!DOCTYPE html&gt;
+&lt;html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"&gt;
+    
+    &lt;head&gt;
+
+        &lt;title&gt;OrangeHRM&lt;/title&gt;
+        
+        &lt;meta http-equiv="Content-Type" content="text/html; charset=utf-8" /&gt;
+                
+        &lt;link rel="shortcut icon" href="/webres_5acde3dbd3adc6.90334155/themes/default/images/favicon.ico" /&gt;
+        
+        &lt;!-- Library CSS files --&gt;
+        &lt;link href="/webres_5acde3dbd3adc6.90334155/themes/default/css/reset.css" rel="stylesheet" type="text/css"/&gt;
+        &lt;link href="/webres_5acde3dbd3adc6.90334155/themes/default/css/tipTip.css" rel="stylesheet" type="text/css"/&gt;
+        &lt;link href="/webres_5acde3dbd3adc6.90334155/themes/default/css/jquery/jquery-ui-1.8.21.custom.css" rel="stylesheet" type="text/css"/&gt;
+        &lt;link href="/webres_5acde3dbd3adc6.90334155/themes/default/css/jquery/jquery.autocomplete.css" rel="stylesheet" type="text/css"/&gt;
+        
+        &lt;!-- Custom CSS files --&gt;
+        &lt;link href="/webres_5acde3dbd3adc6.90334155/themes/default/css/main.css" rel="stylesheet" type="text/css"/&gt;
+        
+        &lt;script type="text/javascript" src="/webres_5acde3dbd3adc6.90334155/js/jquery/jquery-1.7.2.min.js"&gt;&lt;/script&gt;
+&lt;script type="text/javascript" src="/webres_5acde3dbd3adc6.90334155/js/jquery/validate/jquery.validate.js"&gt;&lt;/script&gt;
+&lt;script type="text/javascript" src="/webres_5acde3dbd3adc6.90334155/js/jquery/jquery.ui.core.js"&gt;&lt;/script&gt;
+&lt;script type="text/javascript" src="/webres_5acde3dbd3adc6.90334155/js/jquery/jquery.autocomplete.js"&gt;&lt;/script&gt;
+&lt;script type="text/javascript" src="/webres_5acde3dbd3adc6.90334155/js/orangehrm.autocomplete.js"&gt;&lt;/script&gt;
+&lt;script type="text/javascript" src="/webres_5acde3dbd3adc6.90334155/js/jquery/jquery.ui.datepicker.js"&gt;&lt;/script&gt;
+&lt;script type="text/javascript" src="/webres_5acde3dbd3adc6.90334155/js/jquery/jquery.form.js"&gt;&lt;/script&gt;
+&lt;script type="text/javascript" src="/webres_5acde3dbd3adc6.90334155/js/jquery/jquery.tipTip.minified.js"&gt;&lt;/script&gt;
+&lt;script type="text/javascript" src="/webres_5acde3dbd3adc6.90334155/js/jquery/bootstrap-modal.js"&gt;&lt;/script&gt;
+&lt;script type="text/javascript" src="/webres_5acde3dbd3adc6.90334155/js/jquery/jquery.clickoutside.js"&gt;&lt;/script&gt;
+&lt;script type="text/javascript" src="/webres_5acde3dbd3adc6.90334155/js/orangehrm.validate.js"&gt;&lt;/script&gt;
+&lt;script type="text/javascript" src="/webres_5acde3dbd3adc6.90334155/js/archive.js"&gt;&lt;/script&gt;
+   
+        
+        &lt;!-- Le HTML5 shim, for IE6-8 support of HTML5 elements --&gt;
+        &lt;!--[if lt IE 9]&gt;
+            &lt;script src="http://html5shim.googlecode.com/svn/trunk/html5.js"&gt;&lt;/script&gt;
+        &lt;![endif]--&gt;        
+
+
+
+    &lt;/head&gt;
+    &lt;body&gt;
+      
+        &lt;div id="wrapper"&gt;
+            
+            &lt;div id="content"&gt;
+
+                  &lt;style type="text/css"&gt;
+
+    body {
+        background-color: #FFFFFF;
+        height: 700px;
+    }
+
+    img {
+        border: none;
+    }
+    #btnLogin {
+        padding: 0;
+    }
+    input:not([type="image"]) {
+        background-color: transparent;
+        border: none;
+    }
+
+    input:focus, select:focus, textarea:focus {
+        background-color: transparent;
+        border: none;
+    }
+
+    .textInputContainer {
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 11px;
+        color: #666666;
+    }
+
+    #divLogin {
+        background: transparent url(/webres_5acde3dbd3adc6.90334155/themes/default/images/login/login.png) no-repeat center top;
+        height: 520px;
+        width: 100%;
+        border-style: hidden;
+        margin: auto;
+        padding-left: 10px;
+    }
+
+    #divUsername {
+        padding-top: 153px;
+        padding-left: 50%;
+    }
+
+    #divPassword {
+        padding-top: 35px;
+        padding-left: 50%;
+    }
+
+    #txtUsername {
+        width: 240px;
+        border: 0px;
+        background-color: transparent;
+    }
+
+    #txtPassword {
+        width: 240px;
+        border: 0px;
+        background-color: transparent;
+    }
+
+    #txtUsername, #txtPassword {
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 11px;
+        color: #666666;
+        vertical-align: middle;
+        padding-top:0;
+    }
+    
+    #divLoginHelpLink {
+        width: 270px;
+        background-color: transparent;
+        height: 20px;
+        margin-top: 12px;
+        margin-right: 0px;
+        margin-bottom: 0px;
+        margin-left: 50%;
+    }
+
+    #divLoginButton {
+        padding-top: 2px;
+        padding-left: 49.3%;
+        float: left;
+        width: 350px;
+    }
+
+    #btnLogin {
+        background: url(/webres_5acde3dbd3adc6.90334155/themes/default/images/login/Login_button.png) no-repeat;
+        cursor:pointer;
+        width: 94px;
+        height: 26px;
+        border: none;
+        color:#FFFFFF;
+        font-weight: bold;
+        font-size: 13px;
+    }
+
+    #divLink {
+        padding-left: 230px;
+        padding-top: 105px;
+        float: left;
+    }
+
+    #divLogo {
+        padding-left: 30%;
+        padding-top: 70px;
+    }
+
+    #spanMessage {
+        background: transparent url(/webres_5acde3dbd3adc6.90334155/themes/default/images/login/mark.png) no-repeat;
+        padding-left: 18px; 
+        padding-top: 0px;
+        color: #DD7700;
+        font-weight: bold;
+    }
+    
+    #logInPanelHeading{
+        position:absolute;
+        padding-top:100px;
+		padding-left:49.5%;
+        font-family:sans-serif;
+        font-size: 15px;
+        color: #544B3C;
+        font-weight: bold;
+    }
+    
+    .form-hint {
+    color: #878787;
+    padding: 4px 8px;
+    position: relative;
+    left:-254px;
+}
+
+    
+&lt;/style&gt;
+
+&lt;div style="position: relative; top: 210px; left: 655px; z-index:100;"&gt;
+   &lt;span style="color:red; font-weight:bold; z-index:100;"&gt;( Username : Admin | Password : admin123 )&lt;/span&gt;
+&lt;/div&gt;
+
+&lt;div id="divLogin"&gt;
+    &lt;div id="divLogo"&gt;
+        &lt;img src="/webres_5acde3dbd3adc6.90334155/themes/default/images/login/logo.png" /&gt;
+    &lt;/div&gt;
+
+    &lt;form id="frmLogin" method="post" action="/index.php/auth/validateCredentials"&gt;
+        &lt;input type="hidden" name="actionID"/&gt;
+        &lt;input type="hidden" name="hdnUserTimeZoneOffset" id="hdnUserTimeZoneOffset" value="0" /&gt;
+        &lt;input type="hidden" name="_csrf_token" value="8941fce185abd7c921fd201aa3a50526" id="csrf_token" /&gt;        &lt;div id="logInPanelHeading"&gt;LOGIN Panel&lt;/div&gt;
+
+        &lt;div id="divUsername" class="textInputContainer"&gt;
+            &lt;input name="txtUsername" id="txtUsername" type="text" /&gt;          &lt;span class="form-hint" &gt;Username&lt;/span&gt; 
+        &lt;/div&gt;
+        &lt;div id="divPassword" class="textInputContainer"&gt;
+            &lt;input name="txtPassword" id="txtPassword" type="password" /&gt;         &lt;span class="form-hint" &gt;Password&lt;/span&gt;
+        &lt;/div&gt;
+        &lt;div id="divLoginHelpLink"&gt;&lt;/div&gt;
+        &lt;div id="divLoginButton"&gt;
+            &lt;input type="submit" name="Submit" class="button" id="btnLogin" value="LOGIN" /&gt;
+                        &lt;span id="spanMessage"&gt;Csrf token validation failed&lt;/span&gt;
+                    &lt;/div&gt;
+    &lt;/form&gt;
+
+&lt;/div&gt;
+
+&lt;div style="text-align: center"&gt;
+    &lt;/div&gt;
+
+&lt;div id="footer" &gt;
+    &lt;div&gt;
+    OrangeHRM 4.1&lt;br/&gt;
+&amp;copy; 2005 - 2018 &lt;a href="http://www.orangehrm.com" target="_blank"&gt;OrangeHRM, Inc&lt;/a&gt;. All rights reserved.
+    &lt;/div&gt;
+    &lt;div id="social-icons"&gt;
+        &lt;a href="http://www.linkedin.com/groups?home=&amp;amp;gid=891077" target="_blank"&gt;
+            &lt;img src="/webres_5acde3dbd3adc6.90334155/themes/default/images/login/linkedin.png" alt="LinkedIn OrangeHRM group"/&gt;&lt;/a&gt;&amp;nbsp;
+        &lt;a href="http://www.facebook.com/OrangeHRM" target="_blank"&gt;
+            &lt;img src="/webres_5acde3dbd3adc6.90334155/themes/default/images/login/facebook.png" alt="OrangeHRM on Facebook"/&gt;&lt;/a&gt;&amp;nbsp;
+        &lt;a href="http://twitter.com/orangehrm" target="_blank"&gt;
+            &lt;img src="/webres_5acde3dbd3adc6.90334155/themes/default/images/login/twiter.png" alt="OrangeHRM on twitter"/&gt;&lt;/a&gt;&amp;nbsp;
+        &lt;a href="http://www.youtube.com/orangehrm" target="_blank"&gt;
+            &lt;img src="/webres_5acde3dbd3adc6.90334155/themes/default/images/login/youtube.png" alt="OrangeHRM on youtube"/&gt;&lt;/a&gt;&amp;nbsp;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;script type="text/javascript"&gt;
+    
+    function calculateUserTimeZoneOffset() {
+        var myDate = new Date();
+        var offset = (-1) * myDate.getTimezoneOffset() / 60;
+        return offset;
+    }
+            
+    function addHint(inputObject, hintImageURL) {
+        if (inputObject.val() == '') {
+            inputObject.css('background', "url('" + hintImageURL + "') no-repeat 10px 3px");
+        }
+    }
+            
+    function removeHint() {
+       $('.form-hint').css('display', 'none');
+    }
+    
+    function showMessage(message) {
+        if ($('#spanMessage').size() == 0) {
+            $('&lt;span id="spanMessage"&gt;&lt;/span&gt;').insertAfter('#btnLogin');
+        }
+
+        $('#spanMessage').html(message);
+    }
+    
+    function validateLogin() {
+        var isEmptyPasswordAllowed = false;
+        
+        if ($('#txtUsername').val() == '') {
+            showMessage('Username cannot be empty');
+            return false;
+        }
+        
+        if (!isEmptyPasswordAllowed) {
+            if ($('#txtPassword').val() == '') {
+                showMessage('Password cannot be empty');
+                return false;
+            }
+        }
+        
+        return true;
+    }
+    
+    $(document).ready(function() {
+        /*Set a delay to compatible with chrome browser*/
+        setTimeout(checkSavedUsernames,100);
+        
+        $('#txtUsername').focus(function() {
+            removeHint();
+        });
+        
+        $('#txtPassword').focus(function() {
+             removeHint();
+        });
+        
+        $('.form-hint').click(function(){
+            removeHint();
+            $('#txtUsername').focus();
+        });
+        
+        $('#hdnUserTimeZoneOffset').val(calculateUserTimeZoneOffset().toString());
+        
+        $('#frmLogin').submit(validateLogin);
+        
+    });
+
+    function checkSavedUsernames(){
+        if ($('#txtUsername').val() != '') {
+            removeHint();
+        }
+    }
+
+    if (window.top.location.href != location.href) {
+        window.top.location.href = location.href;
+    }
+&lt;/script&gt;
+
+            &lt;/div&gt; &lt;!-- content --&gt;
+          
+        &lt;/div&gt; &lt;!-- wrapper --&gt;
+        
+ 
+        &lt;script type="text/javascript"&gt;
+
+            $(document).ready(function() {                            
+                
+                /* Enabling tooltips */
+                $(".tiptip").tipTip();
+
+                /* Toggling header menus */
+                $("#welcome").click(function () {
+                    $("#welcome-menu").slideToggle("fast");
+                    $(this).toggleClass("activated-welcome");
+                    return false;
+                });
+                
+                $("#help").click(function () {
+                    $("#help-menu").slideToggle("fast");
+                    $(this).toggleClass("activated-help");
+                    return false;
+                });
+                
+                $('.panelTrigger').outside('click', function() {
+                    $('.panelContainer').stop(true, true).slideUp('fast');
+                });                
+
+                /* 
+                 * Button hovering effects 
+                 * Note: we are not using pure css using :hover because :hover applies to even disabled elements.
+                 * The pseudo class :enabled is not supported in IE &lt; 9.
+                 */                
+                $(document).on({
+                    mouseenter: function () {
+                        $(this).addClass('hover');                        
+                    },
+                    mouseleave: function () {
+                        $(this).removeClass('hover');                        
+                    }
+
+                }, 'input[type=button], input[type=submit], input[type=reset]'); 
+  
+                /* Fading out main messages */
+                $(document).on({
+                    click: function() {
+                        $(this).parent('div.message').fadeOut("slow");
+                    }
+                }, '.message a.messageCloseButton');                
+
+                /* Toggling search form: Begins */
+                //$(".toggableForm .inner").hide(); // Disabling this makes search forms to be expanded by default.
+
+                $(".toggableForm .toggle").click(function () {
+                    $(".toggableForm .inner").slideToggle('slow', function() {
+                        if($(this).is(':hidden')) {
+                            $('.toggableForm .tiptip').tipTip({content:'Expand for Options'});
+                        } else {
+                            $('.toggableForm .tiptip').tipTip({content:'Hide Options'});
+                        }
+                    });
+                    $(this).toggleClass("activated");
+                });
+                /* Toggling search form: Ends */
+
+                /* Enabling/disabling form fields: Begin */
+                
+                $('form.clickToEditForm input, form.clickToEditForm select, form.clickToEditForm textarea').attr('disabled', 'disabled');
+                $('form.clickToEditForm input.calendar').datepicker('disable');
+                $('form.clickToEditForm input[type=button]').removeAttr('disabled');
+                
+                $('form input.editButton').click(function(){
+                    $('form.clickToEditForm input, form.clickToEditForm select, form.clickToEditForm textarea').removeAttr('disabled');
+                    $('form.clickToEditForm input.calendar').datepicker('enable');
+                });
+                
+                /* Enabling/disabling form fields: End */
+                
+            });
+            
+        &lt;/script&gt;        
+
+    &lt;/body&gt;
+    
+&lt;/html&gt;
+
+</msg>
+<msg timestamp="20181129 13:57:49.275" level="INFO">Post Request using : alias=orange, uri=/index.php/auth/validateCredentials, data=&lt;empty&gt;, headers=None, files=None, allow_redirects=True </msg>
+<msg timestamp="20181129 13:57:49.275" level="INFO">/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/urllib3/connectionpool.py:858: InsecureRequestWarning: Unverified HTTPS request is being made. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+  InsecureRequestWarning)</msg>
+<msg timestamp="20181129 13:57:49.275" level="TRACE">Return: &lt;Response [200]&gt;</msg>
+<status status="PASS" endtime="20181129 13:57:49.275" starttime="20181129 13:57:48.698"></status>
+</kw>
+<kw name="Get Request" library="RequestsLibrary">
+<doc>Send a GET request on the session object found using the</doc>
 <arguments>
-<arg>USER_PASSWORD</arg>
+<arg>orange</arg>
+<arg>/index.php/admin/viewSystemUsers</arg>
 </arguments>
-<msg timestamp="20181123 12:36:43.139" level="TRACE">Arguments: [ ${user_password}='USER_PASSWORD' ]</msg>
-<kw name="Assign Id To Element" library="Selenium2Library">
-<doc>Assigns a temporary identifier to element specified by `locator`.</doc>
+<assign>
+<var>${result}</var>
+</assign>
+<msg timestamp="20181129 13:57:49.276" level="TRACE">Arguments: [ 'orange' | '/index.php/admin/viewSystemUsers' ]</msg>
+<msg timestamp="20181129 13:57:49.459" level="DEBUG">https://opensource-demo.orangehrmlive.com:443 "GET /index.php/admin/viewSystemUsers HTTP/1.1" 200 3677</msg>
+<msg timestamp="20181129 13:57:49.460" level="INFO">Get Request using : alias=orange, uri=/index.php/admin/viewSystemUsers, headers=None json=None</msg>
+<msg timestamp="20181129 13:57:49.460" level="INFO">/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/urllib3/connectionpool.py:858: InsecureRequestWarning: Unverified HTTPS request is being made. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+  InsecureRequestWarning)</msg>
+<msg timestamp="20181129 13:57:49.460" level="TRACE">Return: &lt;Response [200]&gt;</msg>
+<msg timestamp="20181129 13:57:49.461" level="INFO">${result} = &lt;Response [200]&gt;</msg>
+<status status="PASS" endtime="20181129 13:57:49.461" starttime="20181129 13:57:49.276"></status>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<doc>Fails if objects are unequal after converting them to strings.</doc>
 <arguments>
-<arg>//*[@id="txtPassword"]</arg>
-<arg>${user_password}</arg>
+<arg>${result}</arg>
+<arg>&lt;Response [200]&gt;</arg>
 </arguments>
-<msg timestamp="20181123 12:36:43.139" level="TRACE">Arguments: [ '//*[@id="txtPassword"]' | 'USER_PASSWORD' ]</msg>
-<msg timestamp="20181123 12:36:43.139" level="INFO">Assigning temporary id 'USER_PASSWORD' to element '//*[@id="txtPassword"]'</msg>
-<msg timestamp="20181123 12:36:43.140" level="DEBUG">POST http://127.0.0.1:53508/session/5e2e66fc3a92b4024e76dbddc975f80e/elements {"using": "xpath", "sessionId": "5e2e66fc3a92b4024e76dbddc975f80e", "value": "//*[@id=\"txtPassword\"]"}</msg>
-<msg timestamp="20181123 12:36:43.156" level="DEBUG">Finished Request</msg>
-<msg timestamp="20181123 12:36:43.157" level="DEBUG">POST http://127.0.0.1:53508/session/5e2e66fc3a92b4024e76dbddc975f80e/execute {"sessionId": "5e2e66fc3a92b4024e76dbddc975f80e", "args": [{"element-6066-11e4-a52e-4f735466cecf": "0.6300354426237516-1", "ELEMENT": "0.6300354426237516-1"}], "script": "arguments[0].id = 'USER_PASSWORD';"}</msg>
-<msg timestamp="20181123 12:36:43.162" level="DEBUG">Finished Request</msg>
-<msg timestamp="20181123 12:36:43.162" level="TRACE">Return: None</msg>
-<status status="PASS" endtime="20181123 12:36:43.162" starttime="20181123 12:36:43.139"></status>
+<msg timestamp="20181129 13:57:49.461" level="TRACE">Arguments: [ &lt;Response [200]&gt; | '&lt;Response [200]&gt;' ]</msg>
+<msg timestamp="20181129 13:57:49.461" level="INFO">Argument types are:
+&lt;class 'requests.models.Response'&gt;
+&lt;type 'unicode'&gt;</msg>
+<msg timestamp="20181129 13:57:49.462" level="TRACE">Return: None</msg>
+<status status="PASS" endtime="20181129 13:57:49.462" starttime="20181129 13:57:49.461"></status>
 </kw>
-<msg timestamp="20181123 12:36:43.163" level="TRACE">Return: None</msg>
-<status status="PASS" endtime="20181123 12:36:43.163" starttime="20181123 12:36:43.138"></status>
-</kw>
-<kw name="Clear Element Text" library="Selenium2Library">
-<doc>Clears the text value of text entry element identified by `locator`.</doc>
+<kw name="Get Request" library="RequestsLibrary">
+<doc>Send a GET request on the session object found using the</doc>
 <arguments>
-<arg>USER_PASSWORD</arg>
+<arg>orange</arg>
+<arg>/index.php/admin/viewSystemUsers</arg>
 </arguments>
-<msg timestamp="20181123 12:36:43.163" level="TRACE">Arguments: [ 'USER_PASSWORD' ]</msg>
-<msg timestamp="20181123 12:36:43.163" level="DEBUG">POST http://127.0.0.1:53508/session/5e2e66fc3a92b4024e76dbddc975f80e/elements {"using": "xpath", "sessionId": "5e2e66fc3a92b4024e76dbddc975f80e", "value": "//*[(@id='USER_PASSWORD' or @name='USER_PASSWORD')]"}</msg>
-<msg timestamp="20181123 12:36:43.178" level="DEBUG">Finished Request</msg>
-<msg timestamp="20181123 12:36:43.179" level="DEBUG">POST http://127.0.0.1:53508/session/5e2e66fc3a92b4024e76dbddc975f80e/element/0.6300354426237516-1/clear {"sessionId": "5e2e66fc3a92b4024e76dbddc975f80e", "id": "0.6300354426237516-1"}</msg>
-<msg timestamp="20181123 12:36:43.199" level="DEBUG">Finished Request</msg>
-<msg timestamp="20181123 12:36:43.199" level="TRACE">Return: None</msg>
-<status status="PASS" endtime="20181123 12:36:43.199" starttime="20181123 12:36:43.163"></status>
+<assign>
+<var>@{response}</var>
+</assign>
+<msg timestamp="20181129 13:57:49.462" level="TRACE">Arguments: [ 'orange' | '/index.php/admin/viewSystemUsers' ]</msg>
+<msg timestamp="20181129 13:57:49.637" level="DEBUG">https://opensource-demo.orangehrmlive.com:443 "GET /index.php/admin/viewSystemUsers HTTP/1.1" 200 3654</msg>
+<msg timestamp="20181129 13:57:49.638" level="INFO">Get Request using : alias=orange, uri=/index.php/admin/viewSystemUsers, headers=None json=None</msg>
+<msg timestamp="20181129 13:57:49.638" level="INFO">/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/urllib3/connectionpool.py:858: InsecureRequestWarning: Unverified HTTPS request is being made. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+  InsecureRequestWarning)</msg>
+<msg timestamp="20181129 13:57:49.638" level="TRACE">Return: &lt;Response [200]&gt;</msg>
+<msg timestamp="20181129 13:57:49.639" level="INFO">@{response} = [ &lt;!DOCTYPE html&gt;
+&lt;html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"&gt;
+    
+    &lt;head&gt;
+
+        &lt;title&gt;OrangeHRM&lt;/t | itle&gt;
+        
+        &lt;meta http-equiv="Content-Type" content="tex...</msg>
+<status status="PASS" endtime="20181129 13:57:49.639" starttime="20181129 13:57:49.462"></status>
 </kw>
-<kw name="Input Password" library="Selenium2Library">
-<doc>Types the given password into text field identified by `locator`.</doc>
+<kw name="Convert To String" library="BuiltIn">
+<doc>Converts the given item to a Unicode string.</doc>
 <arguments>
-<arg>USER_PASSWORD</arg>
-<arg>${user_password}</arg>
+<arg>${response}</arg>
 </arguments>
-<msg timestamp="20181123 12:36:43.200" level="TRACE">Arguments: [ 'USER_PASSWORD' | 'admin123' ]</msg>
-<msg timestamp="20181123 12:36:43.200" level="INFO">Typing password into text field 'USER_PASSWORD'</msg>
-<msg timestamp="20181123 12:36:43.200" level="DEBUG">POST http://127.0.0.1:53508/session/5e2e66fc3a92b4024e76dbddc975f80e/elements {"using": "xpath", "sessionId": "5e2e66fc3a92b4024e76dbddc975f80e", "value": "//*[(@id='USER_PASSWORD' or @name='USER_PASSWORD')]"}</msg>
-<msg timestamp="20181123 12:36:43.210" level="DEBUG">Finished Request</msg>
-<msg timestamp="20181123 12:36:43.210" level="DEBUG">POST http://127.0.0.1:53508/session/5e2e66fc3a92b4024e76dbddc975f80e/element/0.6300354426237516-1/clear {"sessionId": "5e2e66fc3a92b4024e76dbddc975f80e", "id": "0.6300354426237516-1"}</msg>
-<msg timestamp="20181123 12:36:43.218" level="DEBUG">Finished Request</msg>
-<msg timestamp="20181123 12:36:43.218" level="DEBUG">POST http://127.0.0.1:53508/session/5e2e66fc3a92b4024e76dbddc975f80e/element/0.6300354426237516-1/value {"text": "admin123", "sessionId": "5e2e66fc3a92b4024e76dbddc975f80e", "id": "0.6300354426237516-1", "value": ["a", "d", "m", "i", "n", "1", "2", "3"]}</msg>
-<msg timestamp="20181123 12:36:43.286" level="DEBUG">Finished Request</msg>
-<msg timestamp="20181123 12:36:43.287" level="TRACE">Return: None</msg>
-<status status="PASS" endtime="20181123 12:36:43.287" starttime="20181123 12:36:43.199"></status>
+<assign>
+<var>${response}</var>
+</assign>
+<msg timestamp="20181129 13:57:49.640" level="TRACE">Arguments: [ [b'&lt;!DOCTYPE html&gt;\n&lt;html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"&gt;\n    \n    &lt;head&gt;\n\n        &lt;title&gt;OrangeHRM&lt;/t',
+ b'itle&gt;\n        \n        &lt;meta http-equiv="Content-Type" content="text/html; charset=utf-8" /&gt;\n                \n        &lt;link rel=',
+ b'"shortcut icon" href="/webres_5acde3dbd3adc6.90334155/themes/default/images/favicon.ico" /&gt;\n        \n        &lt;!-- Library CSS fi',
+ b'les --&gt;\n        &lt;link href="/webres_5acde3dbd3adc6.90334155/themes/default/css/reset.css" rel="stylesheet" type="text/css"/&gt;\n   ',
+ b'     &lt;link href="/webres_5acde3dbd3adc6.90334155/themes/default/css/tipTip.css" rel="stylesheet" type="text/css"/&gt;\n        &lt;link',
+ b' href="/webres_5acde3dbd3adc6.90334155/themes/default/css/jquery/jquery-ui-1.8.21.custom.css" rel="stylesheet" type="text/css"/&gt;',
+ b'\n        &lt;link href="/webres_5acde3dbd3adc6.90334155/themes/default/css/jquery/jquery.autocomplete.css" rel="stylesheet" type="t',
+ b'ext/css"/&gt;\n        \n        &lt;!-- Custom CSS files --&gt;\n        &lt;link href="/webres_5acde3dbd3adc6.90334155/themes/default/css/mai',
+ b'n.css" rel="stylesheet" type="text/css"/&gt;\n        \n        &lt;script type="text/javascript" src="/webres_5acde3dbd3adc6.90334155/j',
+ b's/jquery/jquery-1.7.2.min.js"&gt;&lt;/script&gt;\n&lt;script type="text/javascript" src="/webres_5acde3dbd3adc6.90334155/js/jquery/validate/j',
+ b'query.validate.js"&gt;&lt;/script&gt;\n&lt;script type="text/javascript" src="/webres_5acde3dbd3adc6.90334155/js/jquery/jquery.ui.core.js"&gt;&lt;/',
+ b'script&gt;\n&lt;script type="text/javascript" src="/webres_5acde3dbd3adc6.90334155/js/jquery/jquery.autocomplete.js"&gt;&lt;/script&gt;\n&lt;script ',
+ b'type="text/javascript" src="/webres_5acde3dbd3adc6.90334155/js/orangehrm.autocomplete.js"&gt;&lt;/script&gt;\n&lt;script type="text/javascrip',
+ b't" src="/webres_5acde3dbd3adc6.90334155/js/jquery/jquery.ui.datepicker.js"&gt;&lt;/script&gt;\n&lt;script type="text/javascript" src="/webres',
+ b'_5acde3dbd3adc6.90334155/js/jquery/jquery.form.js"&gt;&lt;/script&gt;\n&lt;script type="text/javascript" src="/webres_5acde3dbd3adc6.90334155',
+ b'/js/jquery/jquery.tipTip.minified.js"&gt;&lt;/script&gt;\n&lt;script type="text/javascript" src="/webres_5acde3dbd3adc6.90334155/js/jquery/bo',
+ b'otstrap-modal.js"&gt;&lt;/script&gt;\n&lt;script type="text/javascript" src="/webres_5acde3dbd3adc6.90334155/js/jquery/jquery.clickoutside.js',
+ b'"&gt;&lt;/script&gt;\n&lt;script type="text/javascript" src="/webres_5acde3dbd3adc6.90334155/js/orangehrm.validate.js"&gt;&lt;/script&gt;\n&lt;script type',
+ b'="text/javascript" src="/webres_5acde3dbd3adc6.90334155/js/archive.js"&gt;&lt;/script&gt;\n   \n        \n        &lt;!-- Le HTML5 shim, for IE',
+ b'6-8 support of HTML5 elements --&gt;\n        &lt;!--[if lt IE 9]&gt;\n            &lt;script src="http://html5shim.googlecode.com/svn/trunk/h',
+ b'tml5.js"&gt;&lt;/script&gt;\n        &lt;![endif]--&gt;        \n\n\n\n    &lt;/head&gt;\n    &lt;body&gt;\n      \n        &lt;div id="wrapper"&gt;\n            \n       ',
+ b'     &lt;div id="content"&gt;\n\n                  &lt;style type="text/css"&gt;\n\n    body {\n        background-color: #FFFFFF;\n        height',
+ b': 700px;\n    }\n\n    img {\n        border: none;\n    }\n    #btnLogin {\n        padding: 0;\n    }\n    input:not([type="image"]) {\n',
+ b'        background-color: transparent;\n        border: none;\n    }\n\n    input:focus, select:focus, textarea:focus {\n        back',
+ b'ground-color: transparent;\n        border: none;\n    }\n\n    .textInputContainer {\n        font-family: Arial, Helvetica, sans-se',
+ b'rif;\n        font-size: 11px;\n        color: #666666;\n    }\n\n    #divLogin {\n        background: transparent url(/webres_5acde3d',
+ b'bd3adc6.90334155/themes/default/images/login/login.png) no-repeat center top;\n        height: 520px;\n        width: 100%;\n      ',
+ b'  border-style: hidden;\n        margin: auto;\n        padding-left: 10px;\n    }\n\n    #divUsername {\n        padding-top: 153px;\n',
+ b'        padding-left: 50%;\n    }\n\n    #divPassword {\n        padding-top: 35px;\n        padding-left: 50%;\n    }\n\n    #txtUserna',
+ b'me {\n        width: 240px;\n        border: 0px;\n        background-color: transparent;\n    }\n\n    #txtPassword {\n        width: ',
+ b'240px;\n        border: 0px;\n        background-color: transparent;\n    }\n\n    #txtUsername, #txtPassword {\n        font-family: ',
+ b'Arial, Helvetica, sans-serif;\n        font-size: 11px;\n        color: #666666;\n        vertical-align: middle;\n        padding-t',
+ b'op:0;\n    }\n    \n    #divLoginHelpLink {\n        width: 270px;\n        background-color: transparent;\n        height: 20px;\n    ',
+ b'    margin-top: 12px;\n        margin-right: 0px;\n        margin-bottom: 0px;\n        margin-left: 50%;\n    }\n\n    #divLoginButto',
+ b'n {\n        padding-top: 2px;\n        padding-left: 49.3%;\n        float: left;\n        width: 350px;\n    }\n\n    #btnLogin {\n   ',
+ b'     background: url(/webres_5acde3dbd3adc6.90334155/themes/default/images/login/Login_button.png) no-repeat;\n        cursor:poi',
+ b'nter;\n        width: 94px;\n        height: 26px;\n        border: none;\n        color:#FFFFFF;\n        font-weight: bold;\n       ',
+ b' font-size: 13px;\n    }\n\n    #divLink {\n        padding-left: 230px;\n        padding-top: 105px;\n        float: left;\n    }\n\n   ',
+ b' #divLogo {\n        padding-left: 30%;\n        padding-top: 70px;\n    }\n\n    #spanMessage {\n        background: transparent url(',
+ b'/webres_5acde3dbd3adc6.90334155/themes/default/images/login/mark.png) no-repeat;\n        padding-left: 18px; \n        padding-to',
+ b'p: 0px;\n        color: #DD7700;\n        font-weight: bold;\n    }\n    \n    #logInPanelHeading{\n        position:absolute;\n       ',
+ b' padding-top:100px;\n\t\tpadding-left:49.5%;\n        font-family:sans-serif;\n        font-size: 15px;\n        color: #544B3C;\n     ',
+ b'   font-weight: bold;\n    }\n    \n    .form-hint {\n    color: #878787;\n    padding: 4px 8px;\n    position: relative;\n    left:-25',
+ b'4px;\n}\n\n    \n&lt;/style&gt;\n\n&lt;div style="position: relative; top: 210px; left: 655px; z-index:100;"&gt;\n   &lt;span style="color:red; font-w',
+ b'eight:bold; z-index:100;"&gt;( Username : Admin | Password : admin123 )&lt;/span&gt;\n&lt;/div&gt;\n\n&lt;div id="divLogin"&gt;\n    &lt;div id="divLogo"&gt;\n ',
+ b'       &lt;img src="/webres_5acde3dbd3adc6.90334155/themes/default/images/login/logo.png" /&gt;\n    &lt;/div&gt;\n\n    &lt;form id="frmLogin" me',
+ b'thod="post" action="/index.php/auth/validateCredentials"&gt;\n        &lt;input type="hidden" name="actionID"/&gt;\n        &lt;input type="hi',
+ b'dden" name="hdnUserTimeZoneOffset" id="hdnUserTimeZoneOffset" value="0" /&gt;\n        &lt;input type="hidden" name="_csrf_token" value',
+ b'="8941fce185abd7c921fd201aa3a50526" id="csrf_token" /&gt;        &lt;div id="logInPanelHeading"&gt;LOGIN Panel&lt;/div&gt;\n\n        &lt;div id="di',
+ b'vUsername" class="textInputContainer"&gt;\n            &lt;input name="txtUsername" id="txtUsername" type="text" /&gt;          &lt;span clas',
+ b's="form-hint" &gt;Username&lt;/span&gt; \n        &lt;/div&gt;\n        &lt;div id="divPassword" class="textInputContainer"&gt;\n            &lt;input name',
+ b'="txtPassword" id="txtPassword" type="password" /&gt;         &lt;span class="form-hint" &gt;Password&lt;/span&gt;\n        &lt;/div&gt;\n        &lt;div ',
+ b'id="divLoginHelpLink"&gt;&lt;/div&gt;\n        &lt;div id="divLoginButton"&gt;\n            &lt;input type="submit" name="Submit" class="button" id=',
+ b'"btnLogin" value="LOGIN" /&gt;\n                    &lt;/div&gt;\n    &lt;/form&gt;\n\n&lt;/div&gt;\n\n&lt;div style="text-align: center"&gt;\n    &lt;div style="tex',
+ b't-align: center;padding: 10px;"&gt;\n    &lt;form id="openIDForm" method="post" action="/index.php/openidauth/openIdCredentials" style=',
+ b'"text-align: center"&gt;\n\n        &lt;input type="hidden" name="_csrf_token" value="e45d305bc8072ad4f31a25f7a9602e25" id="csrf_token" ',
+ b'/&gt;Alternative Login : &lt;select name="openIdProvider" id="openIdProvider"&gt;\n&lt;option value="" selected="selected"&gt;-- Select --&lt;/opti',
+ b'on&gt;\n&lt;/select&gt;\n            &lt;input type="button" value="Login" name="openIdLogin" id="openIdLogin"/&gt;\n            &lt;/form&gt;\n&lt;/div&gt;\n\n&lt;',
+ b'style&gt;\n    #openID{\n        text-align: center;\n        padding: 5px;\n        margin-bottom: 5px;\n    }\n    #openIDForm{\n\n    }\n',
+ b'    #openIDForm input {\n        background-color: red;\n    }\n&lt;/style&gt;\n\n&lt;script type="text/javascript"&gt;\n    $(document).ready(fun',
+ b'ction() {\n        $(\'#openIdLogin\').attr("disabled", "disabled");\n        $(\'#openIdProvider\').change(function() {\n            i',
+ b'f ($("#openIdProvider option:selected").val() == \'\') {\n                $(\'#openIdLogin\').attr("disabled", "disabled");\n         ',
+ b"   } else {\n                $('#openIdLogin').removeAttr('disabled');\n            }\n        });\n        \n        $('#openIdLogin",
+ b'\').click(function(){          \n            $(\'#openIDForm\').submit();\n        });\n    });\n&lt;/script&gt;&lt;/div&gt;\n\n&lt;div id="footer" &gt;\n  ',
+ b'  &lt;div&gt;\n    OrangeHRM 4.1&lt;br/&gt;\n&amp;copy; 2005 - 2018 &lt;a href="http://www.orangehrm.com" target="_blank"&gt;OrangeHRM, Inc&lt;/a&gt;. All rig',
+ b'hts reserved.\n    &lt;/div&gt;\n    &lt;div id="social-icons"&gt;\n        &lt;a href="http://www.linkedin.com/groups?home=&amp;amp;gid=891077" targe',
+ b't="_blank"&gt;\n            &lt;img src="/webres_5acde3dbd3adc6.90334155/themes/default/images/login/linkedin.png" alt="LinkedIn Orange',
+ b'HRM group"/&gt;&lt;/a&gt;&amp;nbsp;\n        &lt;a href="http://www.facebook.com/OrangeHRM" target="_blank"&gt;\n            &lt;img src="/webres_5acde3',
+ b'dbd3adc6.90334155/themes/default/images/login/facebook.png" alt="OrangeHRM on Facebook"/&gt;&lt;/a&gt;&amp;nbsp;\n        &lt;a href="http://twit',
+ b'ter.com/orangehrm" target="_blank"&gt;\n            &lt;img src="/webres_5acde3dbd3adc6.90334155/themes/default/images/login/twiter.png',
+ b'" alt="OrangeHRM on twitter"/&gt;&lt;/a&gt;&amp;nbsp;\n        &lt;a href="http://www.youtube.com/orangehrm" target="_blank"&gt;\n            &lt;img sr',
+ b'c="/webres_5acde3dbd3adc6.90334155/themes/default/images/login/youtube.png" alt="OrangeHRM on youtube"/&gt;&lt;/a&gt;&amp;nbsp;\n    &lt;/div&gt;\n&lt;/',
+ b'div&gt;\n\n&lt;script type="text/javascript"&gt;\n    \n    function calculateUserTimeZoneOffset() {\n        var myDate = new Date();\n       ',
+ b' var offset = (-1) * myDate.getTimezoneOffset() / 60;\n        return offset;\n    }\n            \n    function addHint(inputObject',
+ b', hintImageURL) {\n        if (inputObject.val() == \'\') {\n            inputObject.css(\'background\', "url(\'" + hintImageURL + "\') ',
+ b'no-repeat 10px 3px");\n        }\n    }\n            \n    function removeHint() {\n       $(\'.form-hint\').css(\'display\', \'none\');\n  ',
+ b'  }\n    \n    function showMessage(message) {\n        if ($(\'#spanMessage\').size() == 0) {\n            $(\'&lt;span id="spanMessage"&gt;',
+ b"&lt;/span&gt;').insertAfter('#btnLogin');\n        }\n\n        $('#spanMessage').html(message);\n    }\n    \n    function validateLogin() ",
+ b"{\n        var isEmptyPasswordAllowed = false;\n        \n        if ($('#txtUsername').val() == '') {\n            showMessage('Use",
+ b"rname cannot be empty');\n            return false;\n        }\n        \n        if (!isEmptyPasswordAllowed) {\n            if ($('",
+ b"#txtPassword').val() == '') {\n                showMessage('Password cannot be empty');\n                return false;\n           ",
+ b' }\n        }\n        \n        return true;\n    }\n    \n    $(document).ready(function() {\n        /*Set a delay to compatible wit',
+ b"h chrome browser*/\n        setTimeout(checkSavedUsernames,100);\n        \n        $('#txtUsername').focus(function() {\n          ",
+ b"  removeHint();\n        });\n        \n        $('#txtPassword').focus(function() {\n             removeHint();\n        });\n       ",
+ b" \n        $('.form-hint').click(function(){\n            removeHint();\n            $('#txtUsername').focus();\n        });\n       ",
+ b" \n        $('#hdnUserTimeZoneOffset').val(calculateUserTimeZoneOffset().toString());\n        \n        $('#frmLogin').submit(vali",
+ b"dateLogin);\n        \n    });\n\n    function checkSavedUsernames(){\n        if ($('#txtUsername').val() != '') {\n            remov",
+ b'eHint();\n        }\n    }\n\n    if (window.top.location.href != location.href) {\n        window.top.location.href = location.href;',
+ b'\n    }\n&lt;/script&gt;\n\n            &lt;/div&gt; &lt;!-- content --&gt;\n          \n        &lt;/div&gt; &lt;!-- wrapper --&gt;\n        \n \n        &lt;script type',
+ b'="text/javascript"&gt;\n\n            $(document).ready(function() {                            \n                \n                /* ',
+ b'Enabling tooltips */\n                $(".tiptip").tipTip();\n\n                /* Toggling header menus */\n                $("#wel',
+ b'come").click(function () {\n                    $("#welcome-menu").slideToggle("fast");\n                    $(this).toggleClass("',
+ b'activated-welcome");\n                    return false;\n                });\n                \n                $("#help").click(fun',
+ b'ction () {\n                    $("#help-menu").slideToggle("fast");\n                    $(this).toggleClass("activated-help");\n ',
+ b"                   return false;\n                });\n                \n                $('.panelTrigger').outside('click', functi",
+ b"on() {\n                    $('.panelContainer').stop(true, true).slideUp('fast');\n                });                \n\n         ",
+ b'       /* \n                 * Button hovering effects \n                 * Note: we are not using pure css using :hover because :',
+ b'hover applies to even disabled elements.\n                 * The pseudo class :enabled is not supported in IE &lt; 9.\n              ',
+ b'   */                \n                $(document).on({\n                    mouseenter: function () {\n                        $(t',
+ b"his).addClass('hover');                        \n                    },\n                    mouseleave: function () {\n           ",
+ b"             $(this).removeClass('hover');                        \n                    }\n\n                }, 'input[type=button]",
+ b", input[type=submit], input[type=reset]'); \n  \n                /* Fading out main messages */\n                $(document).on({\n ",
+ b'                   click: function() {\n                        $(this).parent(\'div.message\').fadeOut("slow");\n                  ',
+ b"  }\n                }, '.message a.messageCloseButton');                \n\n                /* Toggling search form: Begins */\n   ",
+ b'             //$(".toggableForm .inner").hide(); // Disabling this makes search forms to be expanded by default.\n\n              ',
+ b'  $(".toggableForm .toggle").click(function () {\n                    $(".toggableForm .inner").slideToggle(\'slow\', function() {\n',
+ b"                        if($(this).is(':hidden')) {\n                            $('.toggableForm .tiptip').tipTip({content:'Expa",
+ b"nd for Options'});\n                        } else {\n                            $('.toggableForm .tiptip').tipTip({content:'Hide",
+ b' Options\'});\n                        }\n                    });\n                    $(this).toggleClass("activated");\n           ',
+ b'     });\n                /* Toggling search form: Ends */\n\n                /* Enabling/disabling form fields: Begin */\n         ',
+ b"       \n                $('form.clickToEditForm input, form.clickToEditForm select, form.clickToEditForm textarea').attr('disabl",
+ b"ed', 'disabled');\n                $('form.clickToEditForm input.calendar').datepicker('disable');\n                $('form.clickT",
+ b"oEditForm input[type=button]').removeAttr('disabled');\n                \n                $('form input.editButton').click(functio",
+ b"n(){\n                    $('form.clickToEditForm input, form.clickToEditForm select, form.clickToEditForm textarea').removeAttr(",
+ b"'disabled');\n                    $('form.clickToEditForm input.calendar').datepicker('enable');\n                });\n            ",
+ b'    \n                /* Enabling/disabling form fields: End */\n                \n            });\n            \n        &lt;/script&gt;  ',
+ b'      \n\n    &lt;/body&gt;\n    \n&lt;/html&gt;\n\n'] ]</msg>
+<msg timestamp="20181129 13:57:49.648" level="DEBUG">Argument types are:
+&lt;type 'list'&gt;</msg>
+<msg timestamp="20181129 13:57:49.649" level="TRACE">Return: '[\'&lt;!DOCTYPE html&gt;\\n&lt;html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"&gt;\\n    \\n    &lt;head&gt;\\n\\n        &lt;title&gt;OrangeHRM&lt;/t\', \'itle&gt;\\n        \\n        &lt;meta http-equiv="Content-Type" content="text/html; charset=utf-8" /&gt;\\n                \\n        &lt;link rel=\', \'"shortcut icon" href="/webres_5acde3dbd3adc6.90334155/themes/default/images/favicon.ico" /&gt;\\n        \\n        &lt;!-- Library CSS fi\', \'les --&gt;\\n        &lt;link href="/webres_5acde3dbd3adc6.90334155/themes/default/css/reset.css" rel="stylesheet" type="text/css"/&gt;\\n   \', \'     &lt;link href="/webres_5acde3dbd3adc6.90334155/themes/default/css/tipTip.css" rel="stylesheet" type="text/css"/&gt;\\n        &lt;link\', \' href="/webres_5acde3dbd3adc6.90334155/themes/default/css/jquery/jquery-ui-1.8.21.custom.css" rel="stylesheet" type="text/css"/&gt;\', \'\\n        &lt;link href="/webres_5acde3dbd3adc6.90334155/themes/default/css/jquery/jquery.autocomplete.css" rel="stylesheet" type="t\', \'ext/css"/&gt;\\n        \\n        &lt;!-- Custom CSS files --&gt;\\n        &lt;link href="/webres_5acde3dbd3adc6.90334155/themes/default/css/mai\', \'n.css" rel="stylesheet" type="text/css"/&gt;\\n        \\n        &lt;script type="text/javascript" src="/webres_5acde3dbd3adc6.90334155/j\', \'s/jquery/jquery-1.7.2.min.js"&gt;&lt;/script&gt;\\n&lt;script type="text/javascript" src="/webres_5acde3dbd3adc6.90334155/js/jquery/validate/j\', \'query.validate.js"&gt;&lt;/script&gt;\\n&lt;script type="text/javascript" src="/webres_5acde3dbd3adc6.90334155/js/jquery/jquery.ui.core.js"&gt;&lt;/\', \'script&gt;\\n&lt;script type="text/javascript" src="/webres_5acde3dbd3adc6.90334155/js/jquery/jquery.autocomplete.js"&gt;&lt;/script&gt;\\n&lt;script \', \'type="text/javascript" src="/webres_5acde3dbd3adc6.90334155/js/orangehrm.autocomplete.js"&gt;&lt;/script&gt;\\n&lt;script type="text/javascrip\', \'t" src="/webres_5acde3dbd3adc6.90334155/js/jquery/jquery.ui.datepicker.js"&gt;&lt;/script&gt;\\n&lt;script type="text/javascript" src="/webres\', \'_5acde3dbd3adc6.90334155/js/jquery/jquery.form.js"&gt;&lt;/script&gt;\\n&lt;script type="text/javascript" src="/webres_5acde3dbd3adc6.90334155\', \'/js/jquery/jquery.tipTip.minified.js"&gt;&lt;/script&gt;\\n&lt;script type="text/javascript" src="/webres_5acde3dbd3adc6.90334155/js/jquery/bo\', \'otstrap-modal.js"&gt;&lt;/script&gt;\\n&lt;script type="text/javascript" src="/webres_5acde3dbd3adc6.90334155/js/jquery/jquery.clickoutside.js\', \'"&gt;&lt;/script&gt;\\n&lt;script type="text/javascript" src="/webres_5acde3dbd3adc6.90334155/js/orangehrm.validate.js"&gt;&lt;/script&gt;\\n&lt;script type\', \'="text/javascript" src="/webres_5acde3dbd3adc6.90334155/js/archive.js"&gt;&lt;/script&gt;\\n   \\n        \\n        &lt;!-- Le HTML5 shim, for IE\', \'6-8 support of HTML5 elements --&gt;\\n        &lt;!--[if lt IE 9]&gt;\\n            &lt;script src="http://html5shim.googlecode.com/svn/trunk/h\', \'tml5.js"&gt;&lt;/script&gt;\\n        &lt;![endif]--&gt;        \\n\\n\\n\\n    &lt;/head&gt;\\n    &lt;body&gt;\\n      \\n        &lt;div id="wrapper"&gt;\\n            \\n       \', \'     &lt;div id="content"&gt;\\n\\n                  &lt;style type="text/css"&gt;\\n\\n    body {\\n        background-color: #FFFFFF;\\n        height\', \': 700px;\\n    }\\n\\n    img {\\n        border: none;\\n    }\\n    #btnLogin {\\n        padding: 0;\\n    }\\n    input:not([type="image"]) {\\n\', \'        background-color: transparent;\\n        border: none;\\n    }\\n\\n    input:focus, select:focus, textarea:focus {\\n        back\', \'ground-color: transparent;\\n        border: none;\\n    }\\n\\n    .textInputContainer {\\n        font-family: Arial, Helvetica, sans-se\', \'rif;\\n        font-size: 11px;\\n        color: #666666;\\n    }\\n\\n    #divLogin {\\n        background: transparent url(/webres_5acde3d\', \'bd3adc6.90334155/themes/default/images/login/login.png) no-repeat center top;\\n        height: 520px;\\n        width: 100%;\\n      \', \'  border-style: hidden;\\n        margin: auto;\\n        padding-left: 10px;\\n    }\\n\\n    #divUsername {\\n        padding-top: 153px;\\n\', \'        padding-left: 50%;\\n    }\\n\\n    #divPassword {\\n        padding-top: 35px;\\n        padding-left: 50%;\\n    }\\n\\n    #txtUserna\', \'me {\\n        width: 240px;\\n        border: 0px;\\n        background-color: transparent;\\n    }\\n\\n    #txtPassword {\\n        width: \', \'240px;\\n        border: 0px;\\n        background-color: transparent;\\n    }\\n\\n    #txtUsername, #txtPassword {\\n        font-family: \', \'Arial, Helvetica, sans-serif;\\n        font-size: 11px;\\n        color: #666666;\\n        vertical-align: middle;\\n        padding-t\', \'op:0;\\n    }\\n    \\n    #divLoginHelpLink {\\n        width: 270px;\\n        background-color: transparent;\\n        height: 20px;\\n    \', \'    margin-top: 12px;\\n        margin-right: 0px;\\n        margin-bottom: 0px;\\n        margin-left: 50%;\\n    }\\n\\n    #divLoginButto\', \'n {\\n        padding-top: 2px;\\n        padding-left: 49.3%;\\n        float: left;\\n        width: 350px;\\n    }\\n\\n    #btnLogin {\\n   \', \'     background: url(/webres_5acde3dbd3adc6.90334155/themes/default/images/login/Login_button.png) no-repeat;\\n        cursor:poi\', \'nter;\\n        width: 94px;\\n        height: 26px;\\n        border: none;\\n        color:#FFFFFF;\\n        font-weight: bold;\\n       \', \' font-size: 13px;\\n    }\\n\\n    #divLink {\\n        padding-left: 230px;\\n        padding-top: 105px;\\n        float: left;\\n    }\\n\\n   \', \' #divLogo {\\n        padding-left: 30%;\\n        padding-top: 70px;\\n    }\\n\\n    #spanMessage {\\n        background: transparent url(\', \'/webres_5acde3dbd3adc6.90334155/themes/default/images/login/mark.png) no-repeat;\\n        padding-left: 18px; \\n        padding-to\', \'p: 0px;\\n        color: #DD7700;\\n        font-weight: bold;\\n    }\\n    \\n    #logInPanelHeading{\\n        position:absolute;\\n       \', \' padding-top:100px;\\n\\t\\tpadding-left:49.5%;\\n        font-family:sans-serif;\\n        font-size: 15px;\\n        color: #544B3C;\\n     \', \'   font-weight: bold;\\n    }\\n    \\n    .form-hint {\\n    color: #878787;\\n    padding: 4px 8px;\\n    position: relative;\\n    left:-25\', \'4px;\\n}\\n\\n    \\n&lt;/style&gt;\\n\\n&lt;div style="position: relative; top: 210px; left: 655px; z-index:100;"&gt;\\n   &lt;span style="color:red; font-w\', \'eight:bold; z-index:100;"&gt;( Username : Admin | Password : admin123 )&lt;/span&gt;\\n&lt;/div&gt;\\n\\n&lt;div id="divLogin"&gt;\\n    &lt;div id="divLogo"&gt;\\n \', \'       &lt;img src="/webres_5acde3dbd3adc6.90334155/themes/default/images/login/logo.png" /&gt;\\n    &lt;/div&gt;\\n\\n    &lt;form id="frmLogin" me\', \'thod="post" action="/index.php/auth/validateCredentials"&gt;\\n        &lt;input type="hidden" name="actionID"/&gt;\\n        &lt;input type="hi\', \'dden" name="hdnUserTimeZoneOffset" id="hdnUserTimeZoneOffset" value="0" /&gt;\\n        &lt;input type="hidden" name="_csrf_token" value\', \'="8941fce185abd7c921fd201aa3a50526" id="csrf_token" /&gt;        &lt;div id="logInPanelHeading"&gt;LOGIN Panel&lt;/div&gt;\\n\\n        &lt;div id="di\', \'vUsername" class="textInputContainer"&gt;\\n            &lt;input name="txtUsername" id="txtUsername" type="text" /&gt;          &lt;span clas\', \'s="form-hint" &gt;Username&lt;/span&gt; \\n        &lt;/div&gt;\\n        &lt;div id="divPassword" class="textInputContainer"&gt;\\n            &lt;input name\', \'="txtPassword" id="txtPassword" type="password" /&gt;         &lt;span class="form-hint" &gt;Password&lt;/span&gt;\\n        &lt;/div&gt;\\n        &lt;div \', \'id="divLoginHelpLink"&gt;&lt;/div&gt;\\n        &lt;div id="divLoginButton"&gt;\\n            &lt;input type="submit" name="Submit" class="button" id=\', \'"btnLogin" value="LOGIN" /&gt;\\n                    &lt;/div&gt;\\n    &lt;/form&gt;\\n\\n&lt;/div&gt;\\n\\n&lt;div style="text-align: center"&gt;\\n    &lt;div style="tex\', \'t-align: center;padding: 10px;"&gt;\\n    &lt;form id="openIDForm" method="post" action="/index.php/openidauth/openIdCredentials" style=\', \'"text-align: center"&gt;\\n\\n        &lt;input type="hidden" name="_csrf_token" value="e45d305bc8072ad4f31a25f7a9602e25" id="csrf_token" \', \'/&gt;Alternative Login : &lt;select name="openIdProvider" id="openIdProvider"&gt;\\n&lt;option value="" selected="selected"&gt;-- Select --&lt;/opti\', \'on&gt;\\n&lt;/select&gt;\\n            &lt;input type="button" value="Login" name="openIdLogin" id="openIdLogin"/&gt;\\n            &lt;/form&gt;\\n&lt;/div&gt;\\n\\n&lt;\', \'style&gt;\\n    #openID{\\n        text-align: center;\\n        padding: 5px;\\n        margin-bottom: 5px;\\n    }\\n    #openIDForm{\\n\\n    }\\n\', \'    #openIDForm input {\\n        background-color: red;\\n    }\\n&lt;/style&gt;\\n\\n&lt;script type="text/javascript"&gt;\\n    $(document).ready(fun\', \'ction() {\\n        $(\\\'#openIdLogin\\\').attr("disabled", "disabled");\\n        $(\\\'#openIdProvider\\\').change(function() {\\n            i\', \'f ($("#openIdProvider option:selected").val() == \\\'\\\') {\\n                $(\\\'#openIdLogin\\\').attr("disabled", "disabled");\\n         \', "   } else {\\n                $(\'#openIdLogin\').removeAttr(\'disabled\');\\n            }\\n        });\\n        \\n        $(\'#openIdLogin", \'\\\').click(function(){          \\n            $(\\\'#openIDForm\\\').submit();\\n        });\\n    });\\n&lt;/script&gt;&lt;/div&gt;\\n\\n&lt;div id="footer" &gt;\\n  \', \'  &lt;div&gt;\\n    OrangeHRM 4.1&lt;br/&gt;\\n&amp;copy; 2005 - 2018 &lt;a href="http://www.orangehrm.com" target="_blank"&gt;OrangeHRM, Inc&lt;/a&gt;. All rig\', \'hts reserved.\\n    &lt;/div&gt;\\n    &lt;div id="social-icons"&gt;\\n        &lt;a href="http://www.linkedin.com/groups?home=&amp;amp;gid=891077" targe\', \'t="_blank"&gt;\\n            &lt;img src="/webres_5acde3dbd3adc6.90334155/themes/default/images/login/linkedin.png" alt="LinkedIn Orange\', \'HRM group"/&gt;&lt;/a&gt;&amp;nbsp;\\n        &lt;a href="http://www.facebook.com/OrangeHRM" target="_blank"&gt;\\n            &lt;img src="/webres_5acde3\', \'dbd3adc6.90334155/themes/default/images/login/facebook.png" alt="OrangeHRM on Facebook"/&gt;&lt;/a&gt;&amp;nbsp;\\n        &lt;a href="http://twit\', \'ter.com/orangehrm" target="_blank"&gt;\\n            &lt;img src="/webres_5acde3dbd3adc6.90334155/themes/default/images/login/twiter.png\', \'" alt="OrangeHRM on twitter"/&gt;&lt;/a&gt;&amp;nbsp;\\n        &lt;a href="http://www.youtube.com/orangehrm" target="_blank"&gt;\\n            &lt;img sr\', \'c="/webres_5acde3dbd3adc6.90334155/themes/default/images/login/youtube.png" alt="OrangeHRM on youtube"/&gt;&lt;/a&gt;&amp;nbsp;\\n    &lt;/div&gt;\\n&lt;/\', \'div&gt;\\n\\n&lt;script type="text/javascript"&gt;\\n    \\n    function calculateUserTimeZoneOffset() {\\n        var myDate = new Date();\\n       \', \' var offset = (-1) * myDate.getTimezoneOffset() / 60;\\n        return offset;\\n    }\\n            \\n    function addHint(inputObject\', \', hintImageURL) {\\n        if (inputObject.val() == \\\'\\\') {\\n            inputObject.css(\\\'background\\\', "url(\\\'" + hintImageURL + "\\\') \', \'no-repeat 10px 3px");\\n        }\\n    }\\n            \\n    function removeHint() {\\n       $(\\\'.form-hint\\\').css(\\\'display\\\', \\\'none\\\');\\n  \', \'  }\\n    \\n    function showMessage(message) {\\n        if ($(\\\'#spanMessage\\\').size() == 0) {\\n            $(\\\'&lt;span id="spanMessage"&gt;\', "&lt;/span&gt;\').insertAfter(\'#btnLogin\');\\n        }\\n\\n        $(\'#spanMessage\').html(message);\\n    }\\n    \\n    function validateLogin() ", "{\\n        var isEmptyPasswordAllowed = false;\\n        \\n        if ($(\'#txtUsername\').val() == \'\') {\\n            showMessage(\'Use", "rname cannot be empty\');\\n            return false;\\n        }\\n        \\n        if (!isEmptyPasswordAllowed) {\\n            if ($(\'", "#txtPassword\').val() == \'\') {\\n                showMessage(\'Password cannot be empty\');\\n                return false;\\n           ", \' }\\n        }\\n        \\n        return true;\\n    }\\n    \\n    $(document).ready(function() {\\n        /*Set a delay to compatible wit\', "h chrome browser*/\\n        setTimeout(checkSavedUsernames,100);\\n        \\n        $(\'#txtUsername\').focus(function() {\\n          ", "  removeHint();\\n        });\\n        \\n        $(\'#txtPassword\').focus(function() {\\n             removeHint();\\n        });\\n       ", " \\n        $(\'.form-hint\').click(function(){\\n            removeHint();\\n            $(\'#txtUsername\').focus();\\n        });\\n       ", " \\n        $(\'#hdnUserTimeZoneOffset\').val(calculateUserTimeZoneOffset().toString());\\n        \\n        $(\'#frmLogin\').submit(vali", "dateLogin);\\n        \\n    });\\n\\n    function checkSavedUsernames(){\\n        if ($(\'#txtUsername\').val() != \'\') {\\n            remov", \'eHint();\\n        }\\n    }\\n\\n    if (window.top.location.href != location.href) {\\n        window.top.location.href = location.href;\', \'\\n    }\\n&lt;/script&gt;\\n\\n            &lt;/div&gt; &lt;!-- content --&gt;\\n          \\n        &lt;/div&gt; &lt;!-- wrapper --&gt;\\n        \\n \\n        &lt;script type\', \'="text/javascript"&gt;\\n\\n            $(document).ready(function() {                            \\n                \\n                /* \', \'Enabling tooltips */\\n                $(".tiptip").tipTip();\\n\\n                /* Toggling header menus */\\n                $("#wel\', \'come").click(function () {\\n                    $("#welcome-menu").slideToggle("fast");\\n                    $(this).toggleClass("\', \'activated-welcome");\\n                    return false;\\n                });\\n                \\n                $("#help").click(fun\', \'ction () {\\n                    $("#help-menu").slideToggle("fast");\\n                    $(this).toggleClass("activated-help");\\n \', "                   return false;\\n                });\\n                \\n                $(\'.panelTrigger\').outside(\'click\', functi", "on() {\\n                    $(\'.panelContainer\').stop(true, true).slideUp(\'fast\');\\n                });                \\n\\n         ", \'       /* \\n                 * Button hovering effects \\n                 * Note: we are not using pure css using :hover because :\', \'hover applies to even disabled elements.\\n                 * The pseudo class :enabled is not supported in IE &lt; 9.\\n              \', \'   */                \\n                $(document).on({\\n                    mouseenter: function () {\\n                        $(t\', "his).addClass(\'hover\');                        \\n                    },\\n                    mouseleave: function () {\\n           ", "             $(this).removeClass(\'hover\');                        \\n                    }\\n\\n                }, \'input[type=button]", ", input[type=submit], input[type=reset]\'); \\n  \\n                /* Fading out main messages */\\n                $(document).on({\\n ", \'                   click: function() {\\n                        $(this).parent(\\\'div.message\\\').fadeOut("slow");\\n                  \', "  }\\n                }, \'.message a.messageCloseButton\');                \\n\\n                /* Toggling search form: Begins */\\n   ", \'             //$(".toggableForm .inner").hide(); // Disabling this makes search forms to be expanded by default.\\n\\n              \', \'  $(".toggableForm .toggle").click(function () {\\n                    $(".toggableForm .inner").slideToggle(\\\'slow\\\', function() {\\n\', "                        if($(this).is(\':hidden\')) {\\n                            $(\'.toggableForm .tiptip\').tipTip({content:\'Expa", "nd for Options\'});\\n                        } else {\\n                            $(\'.toggableForm .tiptip\').tipTip({content:\'Hide", \' Options\\\'});\\n                        }\\n                    });\\n                    $(this).toggleClass("activated");\\n           \', \'     });\\n                /* Toggling search form: Ends */\\n\\n                /* Enabling/disabling form fields: Begin */\\n         \', "       \\n                $(\'form.clickToEditForm input, form.clickToEditForm select, form.clickToEditForm textarea\').attr(\'disabl", "ed\', \'disabled\');\\n                $(\'form.clickToEditForm input.calendar\').datepicker(\'disable\');\\n                $(\'form.clickT", "oEditForm input[type=button]\').removeAttr(\'disabled\');\\n                \\n                $(\'form input.editButton\').click(functio", "n(){\\n                    $(\'form.clickToEditForm input, form.clickToEditForm select, form.clickToEditForm textarea\').removeAttr(", "\'disabled\');\\n                    $(\'form.clickToEditForm input.calendar\').datepicker(\'enable\');\\n                });\\n            ", \'    \\n                /* Enabling/disabling form fields: End */\\n                \\n            });\\n            \\n        &lt;/script&gt;  \', \'      \\n\\n    &lt;/body&gt;\\n    \\n&lt;/html&gt;\\n\\n\']'</msg>
+<msg timestamp="20181129 13:57:49.649" level="INFO">${response} = ['&lt;!DOCTYPE html&gt;\n&lt;html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"&gt;\n    \n    &lt;head&gt;\n\n        &lt;title&gt;OrangeHRM&lt;/t', 'itle&gt;\n        \n        &lt;meta http-equiv="Content-Type" cont...</msg>
+<status status="PASS" endtime="20181129 13:57:49.649" starttime="20181129 13:57:49.639"></status>
 </kw>
-<kw name="Sleep" library="BuiltIn">
-<doc>Pauses the test executed for the given time.</doc>
+<kw name="Should Contain" library="BuiltIn">
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
 <arguments>
-<arg>3</arg>
+<arg>${response}</arg>
+<arg>Admin</arg>
 </arguments>
-<msg timestamp="20181123 12:36:43.287" level="TRACE">Arguments: [ '3' ]</msg>
-<msg timestamp="20181123 12:36:46.287" level="INFO">Slept 3 seconds</msg>
-<msg timestamp="20181123 12:36:46.287" level="TRACE">Return: None</msg>
-<status status="PASS" endtime="20181123 12:36:46.288" starttime="20181123 12:36:43.287"></status>
-</kw>
-<msg timestamp="20181123 12:36:46.288" level="TRACE">Return: None</msg>
-<status status="PASS" endtime="20181123 12:36:46.288" starttime="20181123 12:36:43.137"></status>
-</kw>
-<kw name="Do login" library="LoginUPO">
-<doc>This tkeyword will locate the button sig in and it will be click on this</doc>
-<msg timestamp="20181123 12:36:46.289" level="TRACE">Arguments: [  ]</msg>
-<kw name="Assign Loggin Button to" library="Elements">
-<arguments>
-<arg>LOGIN_BTN</arg>
-</arguments>
-<msg timestamp="20181123 12:36:46.289" level="TRACE">Arguments: [ ${loggin_btn}='LOGIN_BTN' ]</msg>
-<kw name="Assign Id To Element" library="Selenium2Library">
-<doc>Assigns a temporary identifier to element specified by `locator`.</doc>
-<arguments>
-<arg>//*[@id="btnLogin"]</arg>
-<arg>${loggin_btn}</arg>
-</arguments>
-<msg timestamp="20181123 12:36:46.290" level="TRACE">Arguments: [ '//*[@id="btnLogin"]' | 'LOGIN_BTN' ]</msg>
-<msg timestamp="20181123 12:36:46.290" level="INFO">Assigning temporary id 'LOGIN_BTN' to element '//*[@id="btnLogin"]'</msg>
-<msg timestamp="20181123 12:36:46.290" level="DEBUG">POST http://127.0.0.1:53508/session/5e2e66fc3a92b4024e76dbddc975f80e/elements {"using": "xpath", "sessionId": "5e2e66fc3a92b4024e76dbddc975f80e", "value": "//*[@id=\"btnLogin\"]"}</msg>
-<msg timestamp="20181123 12:36:46.304" level="DEBUG">Finished Request</msg>
-<msg timestamp="20181123 12:36:46.304" level="DEBUG">POST http://127.0.0.1:53508/session/5e2e66fc3a92b4024e76dbddc975f80e/execute {"sessionId": "5e2e66fc3a92b4024e76dbddc975f80e", "args": [{"element-6066-11e4-a52e-4f735466cecf": "0.6300354426237516-2", "ELEMENT": "0.6300354426237516-2"}], "script": "arguments[0].id = 'LOGIN_BTN';"}</msg>
-<msg timestamp="20181123 12:36:46.310" level="DEBUG">Finished Request</msg>
-<msg timestamp="20181123 12:36:46.310" level="TRACE">Return: None</msg>
-<status status="PASS" endtime="20181123 12:36:46.310" starttime="20181123 12:36:46.289"></status>
-</kw>
-<msg timestamp="20181123 12:36:46.310" level="TRACE">Return: None</msg>
-<status status="PASS" endtime="20181123 12:36:46.310" starttime="20181123 12:36:46.289"></status>
-</kw>
-<kw name="Click Element" library="Selenium2Library">
-<doc>Click element identified by `locator`.</doc>
-<arguments>
-<arg>LOGIN_BTN</arg>
-</arguments>
-<msg timestamp="20181123 12:36:46.311" level="TRACE">Arguments: [ 'LOGIN_BTN' ]</msg>
-<msg timestamp="20181123 12:36:46.311" level="INFO">Clicking element 'LOGIN_BTN'.</msg>
-<msg timestamp="20181123 12:36:46.311" level="DEBUG">POST http://127.0.0.1:53508/session/5e2e66fc3a92b4024e76dbddc975f80e/elements {"using": "xpath", "sessionId": "5e2e66fc3a92b4024e76dbddc975f80e", "value": "//*[(@id='LOGIN_BTN' or @name='LOGIN_BTN')]"}</msg>
-<msg timestamp="20181123 12:36:46.324" level="DEBUG">Finished Request</msg>
-<msg timestamp="20181123 12:36:46.324" level="DEBUG">POST http://127.0.0.1:53508/session/5e2e66fc3a92b4024e76dbddc975f80e/element/0.6300354426237516-2/click {"sessionId": "5e2e66fc3a92b4024e76dbddc975f80e", "id": "0.6300354426237516-2"}</msg>
-<msg timestamp="20181123 12:36:46.363" level="DEBUG">Finished Request</msg>
-<msg timestamp="20181123 12:36:46.363" level="TRACE">Return: None</msg>
-<status status="PASS" endtime="20181123 12:36:46.363" starttime="20181123 12:36:46.311"></status>
-</kw>
-<kw name="Sleep" library="BuiltIn">
-<doc>Pauses the test executed for the given time.</doc>
-<arguments>
-<arg>3</arg>
-</arguments>
-<msg timestamp="20181123 12:36:46.364" level="TRACE">Arguments: [ '3' ]</msg>
-<msg timestamp="20181123 12:36:49.364" level="INFO">Slept 3 seconds</msg>
-<msg timestamp="20181123 12:36:49.364" level="TRACE">Return: None</msg>
-<status status="PASS" endtime="20181123 12:36:49.364" starttime="20181123 12:36:46.363"></status>
-</kw>
-<msg timestamp="20181123 12:36:49.365" level="TRACE">Return: None</msg>
-<status status="PASS" endtime="20181123 12:36:49.365" starttime="20181123 12:36:46.288"></status>
-</kw>
-<kw name="Page Should Contain" library="Selenium2Library">
-<doc>Verifies that current page contains `text`.</doc>
-<arguments>
-<arg>Username cannot be empty</arg>
-</arguments>
-<msg timestamp="20181123 12:36:49.365" level="TRACE">Arguments: [ 'Username cannot be empty' ]</msg>
-<msg timestamp="20181123 12:36:49.371" level="DEBUG">POST http://127.0.0.1:53508/session/5e2e66fc3a92b4024e76dbddc975f80e/frame {"sessionId": "5e2e66fc3a92b4024e76dbddc975f80e", "id": null}</msg>
-<msg timestamp="20181123 12:36:49.375" level="DEBUG">Finished Request</msg>
-<msg timestamp="20181123 12:36:49.375" level="DEBUG">POST http://127.0.0.1:53508/session/5e2e66fc3a92b4024e76dbddc975f80e/elements {"using": "xpath", "sessionId": "5e2e66fc3a92b4024e76dbddc975f80e", "value": "//*[contains(., 'Username cannot be empty')]"}</msg>
-<msg timestamp="20181123 12:36:49.388" level="DEBUG">Finished Request</msg>
-<msg timestamp="20181123 12:36:49.388" level="INFO">Current page contains text 'Username cannot be empty'.</msg>
-<msg timestamp="20181123 12:36:49.389" level="TRACE">Return: None</msg>
-<status status="PASS" endtime="20181123 12:36:49.389" starttime="20181123 12:36:49.365"></status>
+<msg timestamp="20181129 13:57:49.649" level="TRACE">Arguments: [ '[\'&lt;!DOCTYPE html&gt;\\n&lt;html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"&gt;\\n    \\n    &lt;head&gt;\\n\\n        &lt;title&gt;OrangeHRM&lt;/t\', \'itle&gt;\\n        \\n        &lt;meta http-equiv="Content-Type" content="text/html; charset=utf-8" /&gt;\\n                \\n        &lt;link rel=\', \'"shortcut icon" href="/webres_5acde3dbd3adc6.90334155/themes/default/images/favicon.ico" /&gt;\\n        \\n        &lt;!-- Library CSS fi\', \'les --&gt;\\n        &lt;link href="/webres_5acde3dbd3adc6.90334155/themes/default/css/reset.css" rel="stylesheet" type="text/css"/&gt;\\n   \', \'     &lt;link href="/webres_5acde3dbd3adc6.90334155/themes/default/css/tipTip.css" rel="stylesheet" type="text/css"/&gt;\\n        &lt;link\', \' href="/webres_5acde3dbd3adc6.90334155/themes/default/css/jquery/jquery-ui-1.8.21.custom.css" rel="stylesheet" type="text/css"/&gt;\', \'\\n        &lt;link href="/webres_5acde3dbd3adc6.90334155/themes/default/css/jquery/jquery.autocomplete.css" rel="stylesheet" type="t\', \'ext/css"/&gt;\\n        \\n        &lt;!-- Custom CSS files --&gt;\\n        &lt;link href="/webres_5acde3dbd3adc6.90334155/themes/default/css/mai\', \'n.css" rel="stylesheet" type="text/css"/&gt;\\n        \\n        &lt;script type="text/javascript" src="/webres_5acde3dbd3adc6.90334155/j\', \'s/jquery/jquery-1.7.2.min.js"&gt;&lt;/script&gt;\\n&lt;script type="text/javascript" src="/webres_5acde3dbd3adc6.90334155/js/jquery/validate/j\', \'query.validate.js"&gt;&lt;/script&gt;\\n&lt;script type="text/javascript" src="/webres_5acde3dbd3adc6.90334155/js/jquery/jquery.ui.core.js"&gt;&lt;/\', \'script&gt;\\n&lt;script type="text/javascript" src="/webres_5acde3dbd3adc6.90334155/js/jquery/jquery.autocomplete.js"&gt;&lt;/script&gt;\\n&lt;script \', \'type="text/javascript" src="/webres_5acde3dbd3adc6.90334155/js/orangehrm.autocomplete.js"&gt;&lt;/script&gt;\\n&lt;script type="text/javascrip\', \'t" src="/webres_5acde3dbd3adc6.90334155/js/jquery/jquery.ui.datepicker.js"&gt;&lt;/script&gt;\\n&lt;script type="text/javascript" src="/webres\', \'_5acde3dbd3adc6.90334155/js/jquery/jquery.form.js"&gt;&lt;/script&gt;\\n&lt;script type="text/javascript" src="/webres_5acde3dbd3adc6.90334155\', \'/js/jquery/jquery.tipTip.minified.js"&gt;&lt;/script&gt;\\n&lt;script type="text/javascript" src="/webres_5acde3dbd3adc6.90334155/js/jquery/bo\', \'otstrap-modal.js"&gt;&lt;/script&gt;\\n&lt;script type="text/javascript" src="/webres_5acde3dbd3adc6.90334155/js/jquery/jquery.clickoutside.js\', \'"&gt;&lt;/script&gt;\\n&lt;script type="text/javascript" src="/webres_5acde3dbd3adc6.90334155/js/orangehrm.validate.js"&gt;&lt;/script&gt;\\n&lt;script type\', \'="text/javascript" src="/webres_5acde3dbd3adc6.90334155/js/archive.js"&gt;&lt;/script&gt;\\n   \\n        \\n        &lt;!-- Le HTML5 shim, for IE\', \'6-8 support of HTML5 elements --&gt;\\n        &lt;!--[if lt IE 9]&gt;\\n            &lt;script src="http://html5shim.googlecode.com/svn/trunk/h\', \'tml5.js"&gt;&lt;/script&gt;\\n        &lt;![endif]--&gt;        \\n\\n\\n\\n    &lt;/head&gt;\\n    &lt;body&gt;\\n      \\n        &lt;div id="wrapper"&gt;\\n            \\n       \', \'     &lt;div id="content"&gt;\\n\\n                  &lt;style type="text/css"&gt;\\n\\n    body {\\n        background-color: #FFFFFF;\\n        height\', \': 700px;\\n    }\\n\\n    img {\\n        border: none;\\n    }\\n    #btnLogin {\\n        padding: 0;\\n    }\\n    input:not([type="image"]) {\\n\', \'        background-color: transparent;\\n        border: none;\\n    }\\n\\n    input:focus, select:focus, textarea:focus {\\n        back\', \'ground-color: transparent;\\n        border: none;\\n    }\\n\\n    .textInputContainer {\\n        font-family: Arial, Helvetica, sans-se\', \'rif;\\n        font-size: 11px;\\n        color: #666666;\\n    }\\n\\n    #divLogin {\\n        background: transparent url(/webres_5acde3d\', \'bd3adc6.90334155/themes/default/images/login/login.png) no-repeat center top;\\n        height: 520px;\\n        width: 100%;\\n      \', \'  border-style: hidden;\\n        margin: auto;\\n        padding-left: 10px;\\n    }\\n\\n    #divUsername {\\n        padding-top: 153px;\\n\', \'        padding-left: 50%;\\n    }\\n\\n    #divPassword {\\n        padding-top: 35px;\\n        padding-left: 50%;\\n    }\\n\\n    #txtUserna\', \'me {\\n        width: 240px;\\n        border: 0px;\\n        background-color: transparent;\\n    }\\n\\n    #txtPassword {\\n        width: \', \'240px;\\n        border: 0px;\\n        background-color: transparent;\\n    }\\n\\n    #txtUsername, #txtPassword {\\n        font-family: \', \'Arial, Helvetica, sans-serif;\\n        font-size: 11px;\\n        color: #666666;\\n        vertical-align: middle;\\n        padding-t\', \'op:0;\\n    }\\n    \\n    #divLoginHelpLink {\\n        width: 270px;\\n        background-color: transparent;\\n        height: 20px;\\n    \', \'    margin-top: 12px;\\n        margin-right: 0px;\\n        margin-bottom: 0px;\\n        margin-left: 50%;\\n    }\\n\\n    #divLoginButto\', \'n {\\n        padding-top: 2px;\\n        padding-left: 49.3%;\\n        float: left;\\n        width: 350px;\\n    }\\n\\n    #btnLogin {\\n   \', \'     background: url(/webres_5acde3dbd3adc6.90334155/themes/default/images/login/Login_button.png) no-repeat;\\n        cursor:poi\', \'nter;\\n        width: 94px;\\n        height: 26px;\\n        border: none;\\n        color:#FFFFFF;\\n        font-weight: bold;\\n       \', \' font-size: 13px;\\n    }\\n\\n    #divLink {\\n        padding-left: 230px;\\n        padding-top: 105px;\\n        float: left;\\n    }\\n\\n   \', \' #divLogo {\\n        padding-left: 30%;\\n        padding-top: 70px;\\n    }\\n\\n    #spanMessage {\\n        background: transparent url(\', \'/webres_5acde3dbd3adc6.90334155/themes/default/images/login/mark.png) no-repeat;\\n        padding-left: 18px; \\n        padding-to\', \'p: 0px;\\n        color: #DD7700;\\n        font-weight: bold;\\n    }\\n    \\n    #logInPanelHeading{\\n        position:absolute;\\n       \', \' padding-top:100px;\\n\\t\\tpadding-left:49.5%;\\n        font-family:sans-serif;\\n        font-size: 15px;\\n        color: #544B3C;\\n     \', \'   font-weight: bold;\\n    }\\n    \\n    .form-hint {\\n    color: #878787;\\n    padding: 4px 8px;\\n    position: relative;\\n    left:-25\', \'4px;\\n}\\n\\n    \\n&lt;/style&gt;\\n\\n&lt;div style="position: relative; top: 210px; left: 655px; z-index:100;"&gt;\\n   &lt;span style="color:red; font-w\', \'eight:bold; z-index:100;"&gt;( Username : Admin | Password : admin123 )&lt;/span&gt;\\n&lt;/div&gt;\\n\\n&lt;div id="divLogin"&gt;\\n    &lt;div id="divLogo"&gt;\\n \', \'       &lt;img src="/webres_5acde3dbd3adc6.90334155/themes/default/images/login/logo.png" /&gt;\\n    &lt;/div&gt;\\n\\n    &lt;form id="frmLogin" me\', \'thod="post" action="/index.php/auth/validateCredentials"&gt;\\n        &lt;input type="hidden" name="actionID"/&gt;\\n        &lt;input type="hi\', \'dden" name="hdnUserTimeZoneOffset" id="hdnUserTimeZoneOffset" value="0" /&gt;\\n        &lt;input type="hidden" name="_csrf_token" value\', \'="8941fce185abd7c921fd201aa3a50526" id="csrf_token" /&gt;        &lt;div id="logInPanelHeading"&gt;LOGIN Panel&lt;/div&gt;\\n\\n        &lt;div id="di\', \'vUsername" class="textInputContainer"&gt;\\n            &lt;input name="txtUsername" id="txtUsername" type="text" /&gt;          &lt;span clas\', \'s="form-hint" &gt;Username&lt;/span&gt; \\n        &lt;/div&gt;\\n        &lt;div id="divPassword" class="textInputContainer"&gt;\\n            &lt;input name\', \'="txtPassword" id="txtPassword" type="password" /&gt;         &lt;span class="form-hint" &gt;Password&lt;/span&gt;\\n        &lt;/div&gt;\\n        &lt;div \', \'id="divLoginHelpLink"&gt;&lt;/div&gt;\\n        &lt;div id="divLoginButton"&gt;\\n            &lt;input type="submit" name="Submit" class="button" id=\', \'"btnLogin" value="LOGIN" /&gt;\\n                    &lt;/div&gt;\\n    &lt;/form&gt;\\n\\n&lt;/div&gt;\\n\\n&lt;div style="text-align: center"&gt;\\n    &lt;div style="tex\', \'t-align: center;padding: 10px;"&gt;\\n    &lt;form id="openIDForm" method="post" action="/index.php/openidauth/openIdCredentials" style=\', \'"text-align: center"&gt;\\n\\n        &lt;input type="hidden" name="_csrf_token" value="e45d305bc8072ad4f31a25f7a9602e25" id="csrf_token" \', \'/&gt;Alternative Login : &lt;select name="openIdProvider" id="openIdProvider"&gt;\\n&lt;option value="" selected="selected"&gt;-- Select --&lt;/opti\', \'on&gt;\\n&lt;/select&gt;\\n            &lt;input type="button" value="Login" name="openIdLogin" id="openIdLogin"/&gt;\\n            &lt;/form&gt;\\n&lt;/div&gt;\\n\\n&lt;\', \'style&gt;\\n    #openID{\\n        text-align: center;\\n        padding: 5px;\\n        margin-bottom: 5px;\\n    }\\n    #openIDForm{\\n\\n    }\\n\', \'    #openIDForm input {\\n        background-color: red;\\n    }\\n&lt;/style&gt;\\n\\n&lt;script type="text/javascript"&gt;\\n    $(document).ready(fun\', \'ction() {\\n        $(\\\'#openIdLogin\\\').attr("disabled", "disabled");\\n        $(\\\'#openIdProvider\\\').change(function() {\\n            i\', \'f ($("#openIdProvider option:selected").val() == \\\'\\\') {\\n                $(\\\'#openIdLogin\\\').attr("disabled", "disabled");\\n         \', "   } else {\\n                $(\'#openIdLogin\').removeAttr(\'disabled\');\\n            }\\n        });\\n        \\n        $(\'#openIdLogin", \'\\\').click(function(){          \\n            $(\\\'#openIDForm\\\').submit();\\n        });\\n    });\\n&lt;/script&gt;&lt;/div&gt;\\n\\n&lt;div id="footer" &gt;\\n  \', \'  &lt;div&gt;\\n    OrangeHRM 4.1&lt;br/&gt;\\n&amp;copy; 2005 - 2018 &lt;a href="http://www.orangehrm.com" target="_blank"&gt;OrangeHRM, Inc&lt;/a&gt;. All rig\', \'hts reserved.\\n    &lt;/div&gt;\\n    &lt;div id="social-icons"&gt;\\n        &lt;a href="http://www.linkedin.com/groups?home=&amp;amp;gid=891077" targe\', \'t="_blank"&gt;\\n            &lt;img src="/webres_5acde3dbd3adc6.90334155/themes/default/images/login/linkedin.png" alt="LinkedIn Orange\', \'HRM group"/&gt;&lt;/a&gt;&amp;nbsp;\\n        &lt;a href="http://www.facebook.com/OrangeHRM" target="_blank"&gt;\\n            &lt;img src="/webres_5acde3\', \'dbd3adc6.90334155/themes/default/images/login/facebook.png" alt="OrangeHRM on Facebook"/&gt;&lt;/a&gt;&amp;nbsp;\\n        &lt;a href="http://twit\', \'ter.com/orangehrm" target="_blank"&gt;\\n            &lt;img src="/webres_5acde3dbd3adc6.90334155/themes/default/images/login/twiter.png\', \'" alt="OrangeHRM on twitter"/&gt;&lt;/a&gt;&amp;nbsp;\\n        &lt;a href="http://www.youtube.com/orangehrm" target="_blank"&gt;\\n            &lt;img sr\', \'c="/webres_5acde3dbd3adc6.90334155/themes/default/images/login/youtube.png" alt="OrangeHRM on youtube"/&gt;&lt;/a&gt;&amp;nbsp;\\n    &lt;/div&gt;\\n&lt;/\', \'div&gt;\\n\\n&lt;script type="text/javascript"&gt;\\n    \\n    function calculateUserTimeZoneOffset() {\\n        var myDate = new Date();\\n       \', \' var offset = (-1) * myDate.getTimezoneOffset() / 60;\\n        return offset;\\n    }\\n            \\n    function addHint(inputObject\', \', hintImageURL) {\\n        if (inputObject.val() == \\\'\\\') {\\n            inputObject.css(\\\'background\\\', "url(\\\'" + hintImageURL + "\\\') \', \'no-repeat 10px 3px");\\n        }\\n    }\\n            \\n    function removeHint() {\\n       $(\\\'.form-hint\\\').css(\\\'display\\\', \\\'none\\\');\\n  \', \'  }\\n    \\n    function showMessage(message) {\\n        if ($(\\\'#spanMessage\\\').size() == 0) {\\n            $(\\\'&lt;span id="spanMessage"&gt;\', "&lt;/span&gt;\').insertAfter(\'#btnLogin\');\\n        }\\n\\n        $(\'#spanMessage\').html(message);\\n    }\\n    \\n    function validateLogin() ", "{\\n        var isEmptyPasswordAllowed = false;\\n        \\n        if ($(\'#txtUsername\').val() == \'\') {\\n            showMessage(\'Use", "rname cannot be empty\');\\n            return false;\\n        }\\n        \\n        if (!isEmptyPasswordAllowed) {\\n            if ($(\'", "#txtPassword\').val() == \'\') {\\n                showMessage(\'Password cannot be empty\');\\n                return false;\\n           ", \' }\\n        }\\n        \\n        return true;\\n    }\\n    \\n    $(document).ready(function() {\\n        /*Set a delay to compatible wit\', "h chrome browser*/\\n        setTimeout(checkSavedUsernames,100);\\n        \\n        $(\'#txtUsername\').focus(function() {\\n          ", "  removeHint();\\n        });\\n        \\n        $(\'#txtPassword\').focus(function() {\\n             removeHint();\\n        });\\n       ", " \\n        $(\'.form-hint\').click(function(){\\n            removeHint();\\n            $(\'#txtUsername\').focus();\\n        });\\n       ", " \\n        $(\'#hdnUserTimeZoneOffset\').val(calculateUserTimeZoneOffset().toString());\\n        \\n        $(\'#frmLogin\').submit(vali", "dateLogin);\\n        \\n    });\\n\\n    function checkSavedUsernames(){\\n        if ($(\'#txtUsername\').val() != \'\') {\\n            remov", \'eHint();\\n        }\\n    }\\n\\n    if (window.top.location.href != location.href) {\\n        window.top.location.href = location.href;\', \'\\n    }\\n&lt;/script&gt;\\n\\n            &lt;/div&gt; &lt;!-- content --&gt;\\n          \\n        &lt;/div&gt; &lt;!-- wrapper --&gt;\\n        \\n \\n        &lt;script type\', \'="text/javascript"&gt;\\n\\n            $(document).ready(function() {                            \\n                \\n                /* \', \'Enabling tooltips */\\n                $(".tiptip").tipTip();\\n\\n                /* Toggling header menus */\\n                $("#wel\', \'come").click(function () {\\n                    $("#welcome-menu").slideToggle("fast");\\n                    $(this).toggleClass("\', \'activated-welcome");\\n                    return false;\\n                });\\n                \\n                $("#help").click(fun\', \'ction () {\\n                    $("#help-menu").slideToggle("fast");\\n                    $(this).toggleClass("activated-help");\\n \', "                   return false;\\n                });\\n                \\n                $(\'.panelTrigger\').outside(\'click\', functi", "on() {\\n                    $(\'.panelContainer\').stop(true, true).slideUp(\'fast\');\\n                });                \\n\\n         ", \'       /* \\n                 * Button hovering effects \\n                 * Note: we are not using pure css using :hover because :\', \'hover applies to even disabled elements.\\n                 * The pseudo class :enabled is not supported in IE &lt; 9.\\n              \', \'   */                \\n                $(document).on({\\n                    mouseenter: function () {\\n                        $(t\', "his).addClass(\'hover\');                        \\n                    },\\n                    mouseleave: function () {\\n           ", "             $(this).removeClass(\'hover\');                        \\n                    }\\n\\n                }, \'input[type=button]", ", input[type=submit], input[type=reset]\'); \\n  \\n                /* Fading out main messages */\\n                $(document).on({\\n ", \'                   click: function() {\\n                        $(this).parent(\\\'div.message\\\').fadeOut("slow");\\n                  \', "  }\\n                }, \'.message a.messageCloseButton\');                \\n\\n                /* Toggling search form: Begins */\\n   ", \'             //$(".toggableForm .inner").hide(); // Disabling this makes search forms to be expanded by default.\\n\\n              \', \'  $(".toggableForm .toggle").click(function () {\\n                    $(".toggableForm .inner").slideToggle(\\\'slow\\\', function() {\\n\', "                        if($(this).is(\':hidden\')) {\\n                            $(\'.toggableForm .tiptip\').tipTip({content:\'Expa", "nd for Options\'});\\n                        } else {\\n                            $(\'.toggableForm .tiptip\').tipTip({content:\'Hide", \' Options\\\'});\\n                        }\\n                    });\\n                    $(this).toggleClass("activated");\\n           \', \'     });\\n                /* Toggling search form: Ends */\\n\\n                /* Enabling/disabling form fields: Begin */\\n         \', "       \\n                $(\'form.clickToEditForm input, form.clickToEditForm select, form.clickToEditForm textarea\').attr(\'disabl", "ed\', \'disabled\');\\n                $(\'form.clickToEditForm input.calendar\').datepicker(\'disable\');\\n                $(\'form.clickT", "oEditForm input[type=button]\').removeAttr(\'disabled\');\\n                \\n                $(\'form input.editButton\').click(functio", "n(){\\n                    $(\'form.clickToEditForm input, form.clickToEditForm select, form.clickToEditForm textarea\').removeAttr(", "\'disabled\');\\n                    $(\'form.clickToEditForm input.calendar\').datepicker(\'enable\');\\n                });\\n            ", \'    \\n                /* Enabling/disabling form fields: End */\\n                \\n            });\\n            \\n        &lt;/script&gt;  \', \'      \\n\\n    &lt;/body&gt;\\n    \\n&lt;/html&gt;\\n\\n\']' | 'Admin' ]</msg>
+<msg timestamp="20181129 13:57:49.650" level="TRACE">Return: None</msg>
+<status status="PASS" endtime="20181129 13:57:49.650" starttime="20181129 13:57:49.649"></status>
 </kw>
 <tags>
-<tag>loggin</tag>
+<tag>BE</tag>
 </tags>
-<status status="PASS" endtime="20181123 12:36:49.389" critical="yes" starttime="20181123 12:36:35.708"></status>
+<status status="PASS" endtime="20181129 13:57:49.650" critical="yes" starttime="20181129 13:57:48.696"></status>
 </test>
-<status status="PASS" endtime="20181123 12:36:49.391" starttime="20181123 12:36:35.505"></status>
+<status status="PASS" endtime="20181129 13:57:49.651" starttime="20181129 13:57:48.453"></status>
 </suite>
 <statistics>
 <total>
@@ -189,13 +654,12 @@
 <stat fail="0" pass="1">All Tests</stat>
 </total>
 <tag>
-<stat fail="0" pass="1">loggin</stat>
+<stat fail="0" pass="1">BE</stat>
 </tag>
 <suite>
 <stat fail="0" id="s1" name="Login Test" pass="1">Login Test</stat>
 </suite>
 </statistics>
 <errors>
-<msg timestamp="20181123 12:36:35.707" level="ERROR">Error in file '/Users/david/Desktop/Exercise_Web_Page/robot/Resources/Workflows.robot': Resource file 'Resources/PageObject/LoginUPO.robot' does not exist.</msg>
 </errors>
 </robot>
