@@ -1,0 +1,33 @@
+---
+execution:
+- concurrency: 1
+  executor: selenium
+  hold-for: 1m
+  runner: robot
+  scenario:
+    script: Tests/Functional/load_test.robot
+- concurrency: 1
+  executor: selenium
+  hold-for: 1m
+  runner: robot
+  scenario:
+    script: Tests/Functional/load_test.robot
+- concurrency: 1
+  executor: selenium
+  hold-for: 1m
+  runner: robot
+  scenario:
+    script: Tests/Functional/load_test.robot
+- concurrency: 1
+  executor: selenium
+  hold-for: 1m
+  runner: robot
+  scenario:
+    script: Tests/Functional/load_test.robot
+modules:
+  robot:
+    interpreter: /usr/local/bin/python2.7
+reporting:
+- final-stats
+- blazemeter
+

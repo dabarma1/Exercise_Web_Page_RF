@@ -5,3 +5,7 @@
 *.xml
 *.log
 *.html
+*.json
+*.err
+*.out
+*.ldjson
